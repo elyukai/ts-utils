@@ -15,6 +15,7 @@
     "./async": "./src/async.ts",
     "./classList": "./src/classList.ts",
     "./dictionary": "./src/dictionary.ts",
+    "./equality": "./src/equality.ts",
     "./function": "./src/function.ts",
     "./lazy": "./src/lazy.ts",
     "./maybe": "./src/maybe.ts",
