@@ -9,8 +9,10 @@
     "./classList": "./src/classList.ts",
     "./dictionary": "./src/dictionary.ts",
     "./lazy": "./src/lazy.ts",
+    "./maybe": "./src/maybe.ts",
     "./nullable": "./src/nullable.ts",
     "./object": "./src/object.ts",
+    "./result": "./src/result.ts",
     "./roman": "./src/roman.ts",
     "./string": "./src/string.ts",
     "./typeSafety": "./src/typeSafety.ts"
