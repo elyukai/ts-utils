@@ -6,6 +6,7 @@
   "exports": {
     "./dictionary/native": "./src/dictionary/native.ts",
     "./async": "./src/async.ts",
+    "./classList": "./src/classList.ts",
     "./dictionary": "./src/dictionary.ts",
     "./nullable": "./src/nullable.ts",
     "./object": "./src/object.ts"
