@@ -17,8 +17,8 @@
     "lint": "eslint",
     "format": "prettier \"{src,test}/**/*.{ts,tsx}\" --write",
     "format:check": "prettier \"{src,test}/**/*.{ts,tsx}\" --check",
-    "release": "commit-and-tag-version -t \"\"",
-    "release:sign": "commit-and-tag-version -t \"\" --sign --signoff"
+    "release": "commit-and-tag-version",
+    "release:sign": "commit-and-tag-version --sign --signoff"
   },
   "repository": {
     "type": "git",
