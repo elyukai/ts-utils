@@ -20,11 +20,13 @@
     "./lazy": "./src/lazy.ts",
     "./maybe": "./src/maybe.ts",
     "./nullable": "./src/nullable.ts",
+    "./number": "./src/number.ts",
     "./object": "./src/object.ts",
     "./range": "./src/range.ts",
     "./result": "./src/result.ts",
     "./roman": "./src/roman.ts",
     "./string": "./src/string.ts",
+    "./string/number": "./src/string/number.ts",
     "./string/regex": "./src/string/regex.ts",
     "./typeSafety": "./src/typeSafety.ts"
   },

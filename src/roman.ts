@@ -1,4 +1,4 @@
-import { minus } from "./math.js"
+import { minus } from "./string/number.ts"
 
 const signPairs: [one: string, five: string][] = [
   ["I", "V"],
