@@ -15,6 +15,7 @@
     "./result": "./src/result.ts",
     "./roman": "./src/roman.ts",
     "./string": "./src/string.ts",
+    "./string/regex": "./src/string/regex.ts",
     "./typeSafety": "./src/typeSafety.ts"
   },
   "publish": {
