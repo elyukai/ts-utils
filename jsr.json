@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "license": "MPL-2.0",
   "exports": {
+    "./dictionary/native": "./src/dictionary/native.ts",
+    "./dictionary": "./src/dictionary.ts"
   },
   "publish": {
     "include": [
