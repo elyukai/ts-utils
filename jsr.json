@@ -4,6 +4,13 @@
   "version": "1.0.0",
   "license": "MPL-2.0",
   "exports": {
+    "./array/filters": "./src/array/filters.ts",
+    "./array/generators": "./src/array/generators.ts",
+    "./array/groups": "./src/array/groups.ts",
+    "./array/modify": "./src/array/modify.ts",
+    "./array/nonEmpty": "./src/array/nonEmpty.ts",
+    "./array/reductions": "./src/array/reductions.ts",
+    "./array/sets": "./src/array/sets.ts",
     "./dictionary/native": "./src/dictionary/native.ts",
     "./async": "./src/async.ts",
     "./classList": "./src/classList.ts",

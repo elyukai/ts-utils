@@ -2,14 +2,20 @@
  * A pair that specifies the lower (including) and upper (including) bounds of a
  * contiguous subrange of integer values.
  */
-export type RangeBounds = [lowerIncl: number, upperIncl: number]
+export type RangeBounds = [lowerBound: number, upperBound: number]
+
+const normalizeBounds = (bounds: [RangeBounds] | RangeBounds): RangeBounds =>
+  bounds.length === 1 ? bounds[0] : bounds
 
 /**
  * The list of values in the subrange defined by a bounding pair.
  * @throws {RangeError} If the upper bound is lower than the lower bound.
  */
-export const range = (bounds: RangeBounds): number[] => {
-  const [start, end] = bounds
+export const range: {
+  (...args: RangeBounds): number[]
+  (bounds: RangeBounds): number[]
+} = (...args: [bounds: RangeBounds] | RangeBounds): number[] => {
+  const [start, end] = normalizeBounds(args)
 
   if (start > end) {
     throw new RangeError(
@@ -18,6 +24,20 @@ export const range = (bounds: RangeBounds): number[] => {
   }
 
   return Array.from({ length: end - start + 1 }, (_, i) => i + start)
+}
+
+/**
+ * Returns a range of numbers between and including two numbers. The order of
+ * the arguments does not matter.
+ * @param start The first number in the range.
+ * @param end The last number in the range.
+ */
+export const rangeSafe: {
+  (...args: RangeBounds): number[]
+  (bounds: RangeBounds): number[]
+} = (...args: [bounds: RangeBounds] | RangeBounds): number[] => {
+  const [start, end] = normalizeBounds(args)
+  return start > end ? range(end, start) : range(start, end)
 }
 
 /**
