@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.1](https://github.com/elyukai/ts-utils/compare/v0.1.0...v0.1.1) (2026-01-24)
+
+
+### Features
+
+* add function to identify duplicates in arrays ([8b49fff](https://github.com/elyukai/ts-utils/commit/8b49fffeaabe30dedb0015f2f94ae80737c4b210))
+
 ## 0.1.0 (2026-01-24)
 
 
