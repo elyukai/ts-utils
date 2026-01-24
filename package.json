@@ -1,0 +1,45 @@
+{
+  "name": "@elyukai/utils",
+  "version": "1.0.0",
+  "description": "A set of JavaScript helper functions.",
+  "files": [
+    "dist",
+    "AUTHORS",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    "./*": "./dist/*.js"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "watch": "tsc -b -w",
+    "test": "node --import tsx --test",
+    "lint": "eslint",
+    "format": "prettier \"{src,test}/**/*.{ts,tsx}\" --write",
+    "format:check": "prettier \"{src,test}/**/*.{ts,tsx}\" --check",
+    "release": "commit-and-tag-version -t \"\"",
+    "release:sign": "commit-and-tag-version -t \"\" --sign --signoff"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elyukai/ts-utils.git"
+  },
+  "author": "Lukas Obermann",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/elyukai/ts-utils/issues"
+  },
+  "homepage": "https://github.com/elyukai/ts-utils#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^25.0.10",
+    "commit-and-tag-version": "^12.6.1",
+    "eslint": "^9.39.2",
+    "glob": "^13.0.0",
+    "prettier": "^3.8.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.53.1"
+  },
+  "type": "module"
+}

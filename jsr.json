@@ -1,0 +1,17 @@
+{
+  "$schema": "https://jsr.io/schema/config-file.v1.json",
+  "name": "@elyukai/utils",
+  "version": "1.0.0",
+  "license": "MPL-2.0",
+  "exports": {
+  },
+  "publish": {
+    "include": [
+      "src/**/*.ts",
+      "AUTHORS",
+      "CHANGELOG.md",
+      "README.md",
+      "package.json"
+    ]
+  }
+}
