@@ -12,6 +12,7 @@
     "./maybe": "./src/maybe.ts",
     "./nullable": "./src/nullable.ts",
     "./object": "./src/object.ts",
+    "./range": "./src/range.ts",
     "./result": "./src/result.ts",
     "./roman": "./src/roman.ts",
     "./string": "./src/string.ts",
