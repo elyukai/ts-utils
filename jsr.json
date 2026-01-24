@@ -11,6 +11,7 @@
     "./lazy": "./src/lazy.ts",
     "./nullable": "./src/nullable.ts",
     "./object": "./src/object.ts",
+    "./string": "./src/string.ts",
     "./typeSafety": "./src/typeSafety.ts"
   },
   "publish": {
