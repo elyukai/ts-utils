@@ -6,7 +6,8 @@
   "exports": {
     "./dictionary/native": "./src/dictionary/native.ts",
     "./async": "./src/async.ts",
-    "./dictionary": "./src/dictionary.ts"
+    "./dictionary": "./src/dictionary.ts",
+    "./object": "./src/object.ts"
   },
   "publish": {
     "include": [
