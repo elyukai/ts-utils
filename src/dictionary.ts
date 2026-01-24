@@ -1,6 +1,6 @@
 /**
- * Introduces a Dictionary class that represents an immutable mapping from
- * strings to values.
+ * Introduces a Dictionary class that represents an immutable mapping from strings to values.
+ * @module
  */
 
 import type { AnyNonNullish } from "./nullable.js"

@@ -1,4 +1,9 @@
 /**
+ * Utility functions for filtering arrays.
+ * @module
+ */
+
+/**
  * Filters out duplicate values from an array. Objects are not supported, since
  * they don’t provide value equality semantics.
  */

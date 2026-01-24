@@ -1,4 +1,9 @@
 /**
+ * Utility functions for generating new arrays.
+ * @module
+ */
+
+/**
  * Returns the possibilities of all the combinations of nested array values.
  *
  * @example

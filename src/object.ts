@@ -1,4 +1,9 @@
 /**
+ * Utility functions for objects.
+ * @module
+ */
+
+/**
  * Maps all own properties of an object to a new object. Returning `undefined`
  * from the mapping function will omit the property from the result.
  */

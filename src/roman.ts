@@ -1,3 +1,8 @@
+/**
+ * Utility functions for roman numerals.
+ * @module
+ */
+
 import { minus } from "./string/number.ts"
 
 const signPairs: [one: string, five: string][] = [

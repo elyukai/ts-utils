@@ -1,4 +1,9 @@
 /**
+ * Utility functions for enhancing type-safety.
+ * @module
+ */
+
+/**
  * This function is used to make sure that the `switch` is exhaustive. Place it
  * in the `default` case of the `switch`.
  *

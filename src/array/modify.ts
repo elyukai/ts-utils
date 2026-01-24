@@ -1,4 +1,9 @@
 /**
+ * Utility functions for modifying arrays.
+ * @module
+ */
+
+/**
  * Moves an element from one position to another within the array.
  */
 export const reorder = <T>(

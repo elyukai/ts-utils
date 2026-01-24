@@ -1,4 +1,9 @@
 /**
+ * Utility functions for asynchronous operations.
+ * @module
+ */
+
+/**
  * Returns a promise that resolves after a specified delay in milliseconds.
  * @param delay The delay in milliseconds.
  * @returns A promise that resolves after the specified delay.

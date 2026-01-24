@@ -1,3 +1,8 @@
+/**
+ * Utility functions for building a single value from an array.
+ * @module
+ */
+
 import { unique } from "./filters.js"
 
 /**

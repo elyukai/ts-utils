@@ -4,6 +4,7 @@
   "description": "A set of JavaScript helper functions.",
   "files": [
     "dist",
+    "!dist/**/*.tsbuildinfo",
     "AUTHORS",
     "CHANGELOG.md"
   ],
@@ -35,6 +36,7 @@
     "@types/node": "^25.0.10",
     "commit-and-tag-version": "^12.6.1",
     "eslint": "^9.39.2",
+    "eslint-plugin-jsdoc": "^62.4.1",
     "glob": "^13.0.0",
     "prettier": "^3.8.1",
     "tsx": "^4.21.0",

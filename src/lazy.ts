@@ -1,3 +1,8 @@
+/**
+ * Implementation of lazy-evaluated values.
+ * @module
+ */
+
 import { assertExhaustive } from "./typeSafety.js"
 
 /**

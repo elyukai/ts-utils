@@ -1,3 +1,8 @@
+/**
+ * Utility functions for set-like operations on arrays.
+ * @module
+ */
+
 import { removeAt } from "./modify.ts"
 
 /**

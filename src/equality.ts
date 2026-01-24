@@ -1,4 +1,9 @@
 /**
+ * Utility functions for testing for equality.
+ * @module
+ */
+
+/**
  * A function that compares two values for equality.
  */
 export type Equality<T> = (a: T, b: T) => boolean

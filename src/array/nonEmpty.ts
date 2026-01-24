@@ -1,5 +1,6 @@
 /**
  * Types and functions to check for non-empty arrays.
+ * @module
  */
 
 /**

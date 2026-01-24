@@ -1,4 +1,9 @@
 /**
+ * Utility functions for strings.
+ * @module
+ */
+
+/**
  * Checks if a value is a non-empty string.
  */
 export const isNonEmptyString = (

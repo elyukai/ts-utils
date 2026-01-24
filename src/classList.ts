@@ -1,4 +1,9 @@
 /**
+ * Utility functions for HTML classes.
+ * @module
+ */
+
+/**
  * Returns a string of class names from the given arguments. Filters out
  * nullable values and keys with falsey values.
  */

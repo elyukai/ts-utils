@@ -1,3 +1,8 @@
+/**
+ * Utility functions for grouping values in arrays.
+ * @module
+ */
+
 import type { Equality } from "../equality.ts"
 
 /**

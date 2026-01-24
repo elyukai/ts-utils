@@ -1,3 +1,8 @@
+/**
+ * Utility functions for converting numbers to and from strings.
+ * @module
+ */
+
 import { isInteger, isNaturalNumber } from "./regex.ts"
 
 /**

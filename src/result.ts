@@ -1,4 +1,9 @@
 /**
+ * Implementation of a `Result` type that can structurally represent success or failure.
+ * @module
+ */
+
+/**
  * A result is either a value or an error.
  */
 export type Result<T, E> = Ok<T> | Error<E>

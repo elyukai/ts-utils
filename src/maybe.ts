@@ -1,4 +1,9 @@
 /**
+ * Nullable values as a structure.
+ * @module
+ */
+
+/**
  * A maybe can contain a value or nothing.
  */
 export type Maybe<T> = Just<T> | Nothing

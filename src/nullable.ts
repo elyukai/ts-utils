@@ -1,4 +1,9 @@
 /**
+ * Utility functions for working with values that might be `null` or `undefined`.
+ * @module
+ */
+
+/**
  * Extracts `null` and `undefined` from a type.
  */
 export type Nullish<T = null | undefined> = T extends null | undefined

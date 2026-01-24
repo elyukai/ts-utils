@@ -1,3 +1,8 @@
+/**
+ * Checks if strings match certain regular expressions.
+ * @module
+ */
+
 const naturalNumberPattern = /^(?:0|[1-9][0-9]*)$/u
 const integerPattern = /^(?:0|-?[1-9][0-9]*)$/u
 const floatPattern = /^(?:(?:0|-?[1-9][0-9]*)(?:[.,][0-9]+)?)$/u

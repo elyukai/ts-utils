@@ -1,3 +1,8 @@
+/**
+ * Utility functions for ordering values.
+ * @module
+ */
+
 import { isNullish, type AnyNonNullish } from "./nullable.js"
 
 /**

@@ -1,5 +1,6 @@
 /**
  * Introduces helper functions for a native dictionary, which is an index object.
+ * @module
  */
 
 import type { AnyNonNullish } from "../nullable.js"

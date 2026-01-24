@@ -1,4 +1,9 @@
 /**
+ * Utility functions for numbers.
+ * @module
+ */
+
+/**
  * Returns a random integer between `0` and `max` (inclusive).
  */
 export const randomInt = (max: number): number =>

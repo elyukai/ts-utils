@@ -1,4 +1,9 @@
 /**
+ * Utility functions for generating ranges and working with them.
+ * @module
+ */
+
+/**
  * A pair that specifies the lower (including) and upper (including) bounds of a
  * contiguous subrange of integer values.
  */
