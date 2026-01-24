@@ -27,7 +27,10 @@ export interface Error<E> {
 /**
  * Creates a result that contains a value.
  */
-export const ok = <T>(value: T): Result<T, never> => ({ tag: "Ok", value })
+export const ok: {
+  (): Result<void, never>
+  <T>(value: T): Result<T, never>
+} = <T>(value?: T): Result<T, never> => ({ tag: "Ok", value: value as T })
 
 /**
  * Checks if a result contains a value.
@@ -38,9 +41,12 @@ export const isOk = <T, E>(result: Result<T, E>): result is Ok<T> =>
 /**
  * Creates a result that contains an error.
  */
-export const error = <E>(error: E): Result<never, E> => ({
+export const error: {
+  (): Result<never, void>
+  <E>(error: E): Result<never, E>
+} = <E>(error?: E): Result<never, E> => ({
   tag: "Error",
-  error,
+  error: error as E,
 })
 
 /**
