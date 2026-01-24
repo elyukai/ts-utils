@@ -51,7 +51,7 @@ export const isInRange = (bounds: RangeBounds, value: number): boolean =>
  * Returns the index of a value in a range.
  * @throws {RangeError} If the passed `value` is not within the range specified.
  */
-export const indexInRange = (bounds: RangeBounds, value: number) => {
+export const indexInRange = (bounds: RangeBounds, value: number): number => {
   if (!isInRange(bounds, value)) {
     throw new RangeError(
       `indexInRange: index for ${value.toString()} is out of range (${bounds[0].toString()}...${bounds[1].toString()})`,
