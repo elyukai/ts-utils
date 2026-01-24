@@ -22,7 +22,7 @@ export class Dictionary<T extends AnyNonNullish | null> {
   /**
    * An empty dictionary.
    */
-  static empty = new Dictionary<never>({})
+  static empty: Dictionary<never> = new Dictionary<never>({})
 
   /**
    * Constructs a dictionary from an array of key-value pairs.

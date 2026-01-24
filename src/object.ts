@@ -57,7 +57,7 @@ export const mergeObjects = <T>(
   obj1: Record<string, T>,
   obj2: Record<string, T>,
   solveConflict: (a: T, b: T) => T,
-) =>
+): Record<string, T> =>
   Object.entries(obj2).reduce(
     (acc, [key, value]) => ({
       ...acc,
