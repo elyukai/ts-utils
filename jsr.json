@@ -7,6 +7,7 @@
     "./dictionary/native": "./src/dictionary/native.ts",
     "./async": "./src/async.ts",
     "./dictionary": "./src/dictionary.ts",
+    "./nullable": "./src/nullable.ts",
     "./object": "./src/object.ts"
   },
   "publish": {
