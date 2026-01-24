@@ -8,6 +8,7 @@
     "./async": "./src/async.ts",
     "./classList": "./src/classList.ts",
     "./dictionary": "./src/dictionary.ts",
+    "./lazy": "./src/lazy.ts",
     "./nullable": "./src/nullable.ts",
     "./object": "./src/object.ts",
     "./typeSafety": "./src/typeSafety.ts"
