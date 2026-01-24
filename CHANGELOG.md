@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.4](https://github.com/elyukai/ts-utils/compare/v0.1.3...v0.1.4) (2026-01-24)
+
+
+### Features
+
+* add `then` function to Maybe and Result ([d6fea69](https://github.com/elyukai/ts-utils/commit/d6fea6979ce0bf687b0e377207483ca151e789d2))
+* add mapAsync function ([55077cd](https://github.com/elyukai/ts-utils/commit/55077cd097faf43d56827399d45011ef079a5206))
+* **result:** constructor with no argument ([f65e830](https://github.com/elyukai/ts-utils/commit/f65e8308158b37d7afca3a5f1059bb93f0db072c))
+
 ## [0.1.3](https://github.com/elyukai/ts-utils/compare/v0.1.2...v0.1.3) (2026-01-24)
 
 ## [0.1.2](https://github.com/elyukai/ts-utils/compare/v0.1.1...v0.1.2) (2026-01-24)
