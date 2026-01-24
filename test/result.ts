@@ -9,6 +9,7 @@ import {
   mapError,
   ok,
   reduce,
+  then,
   type Error,
   type Ok,
   type Result,
@@ -106,6 +107,20 @@ describe("mapError", () => {
     const result: Result<string, string> = ok("Success")
     const mapped = mapError(result, (v) => v.length)
     assert.deepEqual(mapped, ok("Success"))
+  })
+})
+
+describe("then", () => {
+  it("returns a result that contains an error if the input result contains an error", () => {
+    const result: Result<string, string> = error("Error")
+    const chained = then(result, (value) => ok(value.length))
+    assert.deepEqual(chained, error("Error"))
+  })
+
+  it("applies the function to the value if the input result contains a value", () => {
+    const result: Result<string, string> = ok("Success")
+    const chained = then(result, (value) => ok(value.length))
+    assert.deepEqual(chained, ok(7))
   })
 })
 

@@ -81,6 +81,14 @@ export const mapError = <T, E, F>(
 ): Result<T, F> => (isError(result) ? error(f(result.error)) : result)
 
 /**
+ * Chains a result to a new result.
+ */
+export const then = <T, U, E>(
+  result: Result<T, E>,
+  f: (value: T) => Result<U, E>,
+): Result<U, E> => (isOk(result) ? f(result.value) : result)
+
+/**
  * Combines two results into one.
  *
  * If both results are Ok, applies `fok` to their values and returns an Ok result.

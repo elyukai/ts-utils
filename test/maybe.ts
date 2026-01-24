@@ -9,6 +9,8 @@ import {
   isNothing,
   map,
   reduce,
+  then,
+  type Maybe,
 } from "../src/maybe.js"
 
 describe(Just.name, () => {
@@ -92,6 +94,20 @@ describe(map.name, () => {
   it("applies the function to the value if the input maybe contains a value", () => {
     const maybe = Just("hello")
     const result = map(maybe, (value) => value.toUpperCase())
+    assert.deepEqual(result, { tag: "Just", value: "HELLO" })
+  })
+})
+
+describe("then", () => {
+  it("returns a maybe that contains nothing if the input maybe contains nothing", () => {
+    const maybe: Maybe<string> = Nothing
+    const result = then(maybe, (value) => Just(value.toUpperCase()))
+    assert.deepEqual(result, { tag: "Nothing" })
+  })
+
+  it("applies the function to the value if the input maybe contains a value", () => {
+    const maybe: Maybe<string> = Just("hello")
+    const result = then(maybe, (value) => Just(value.toUpperCase()))
     assert.deepEqual(result, { tag: "Just", value: "HELLO" })
   })
 })

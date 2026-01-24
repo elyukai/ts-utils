@@ -66,6 +66,14 @@ export const map = <T, U>(maybe: Maybe<T>, f: (value: T) => U): Maybe<U> =>
   isJust(maybe) ? Just(f(maybe.value)) : Nothing
 
 /**
+ * Chains a result to a new result.
+ */
+export const then = <T, U>(
+  maybe: Maybe<T>,
+  f: (value: T) => Maybe<U>,
+): Maybe<U> => (isJust(maybe) ? f(maybe.value) : maybe)
+
+/**
  * Combines two maybes into one maybe. If both maybes contain a value, the
  * values are combined using the provided function. If at least one maybe
  * contains nothing, nothing is returned.
