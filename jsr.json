@@ -9,7 +9,8 @@
     "./classList": "./src/classList.ts",
     "./dictionary": "./src/dictionary.ts",
     "./nullable": "./src/nullable.ts",
-    "./object": "./src/object.ts"
+    "./object": "./src/object.ts",
+    "./typeSafety": "./src/typeSafety.ts"
   },
   "publish": {
     "include": [
