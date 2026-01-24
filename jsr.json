@@ -22,6 +22,7 @@
     "./nullable": "./src/nullable.ts",
     "./number": "./src/number.ts",
     "./object": "./src/object.ts",
+    "./ordering": "./src/ordering.ts",
     "./range": "./src/range.ts",
     "./result": "./src/result.ts",
     "./roman": "./src/roman.ts",
