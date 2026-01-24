@@ -5,6 +5,7 @@
   "license": "MPL-2.0",
   "exports": {
     "./dictionary/native": "./src/dictionary/native.ts",
+    "./async": "./src/async.ts",
     "./dictionary": "./src/dictionary.ts"
   },
   "publish": {
