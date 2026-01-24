@@ -14,7 +14,7 @@ export const unique = <
 export const anySame = <T>(
   arr: T[],
   equalityCheck: (a: T, b: T) => boolean = (a, b) => a === b,
-) =>
+): boolean =>
   arr.some(
     (item, index) =>
       arr.findIndex((other) => equalityCheck(item, other)) !== index,
