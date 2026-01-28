@@ -21,7 +21,7 @@ describe("fromEntries", () => {
 
 describe("get", () => {
   it("should get the value for a key", () => {
-    const dict = new Dict({ a: 1, b: 2 })
+    const dict = new Dict<number>({ a: 1, b: 2 })
     assert.equal(dict.get("a"), 1)
     assert.equal(dict.get("b"), 2)
     assert.equal(dict.get("c"), undefined)
@@ -30,7 +30,7 @@ describe("get", () => {
 
 describe("getMap", () => {
   it("should get and map the value for a key", () => {
-    const dict = new Dict({ a: 1, b: 2 })
+    const dict = new Dict<number>({ a: 1, b: 2 })
     assert.equal(
       dict.getMap("a", (v) => v * 2),
       2,
@@ -48,7 +48,7 @@ describe("getMap", () => {
 
 describe("has", () => {
   it("should check if a key exists", () => {
-    const dict = new Dict({ a: 1, b: 2 })
+    const dict = new Dict<number>({ a: 1, b: 2 })
     assert.equal(dict.has("a"), true)
     assert.equal(dict.has("b"), true)
     assert.equal(dict.has("c"), false)
@@ -57,7 +57,7 @@ describe("has", () => {
 
 describe("set", () => {
   it("should set the value for a key", () => {
-    const dict = new Dict({ a: 1, b: 2 })
+    const dict = new Dict<number>({ a: 1, b: 2 })
     const newDict = dict.set("c", 3)
     assert.deepEqual(newDict, new Dict({ a: 1, b: 2, c: 3 }))
   })
@@ -147,7 +147,7 @@ describe("modify", () => {
   })
 
   it("should add a new key if it does not exist", () => {
-    const dict = new Dict({ a: 1, b: 2 })
+    const dict = new Dict<number>({ a: 1, b: 2 })
     const newDict = dict.modify("c", (v) => (v !== undefined ? v + 10 : 0))
     assert.deepEqual(newDict, new Dict({ a: 1, b: 2, c: 0 }))
   })
@@ -181,7 +181,7 @@ describe("findKey", () => {
   })
 
   it("should return undefined if no key matches", () => {
-    const dict = new Dict({ a: 1, b: 2, c: 3 })
+    const dict = new Dict<number>({ a: 1, b: 2, c: 3 })
     const result = dict.findKey((_value, key) => key === "d")
     assert.equal(result, undefined)
   })
