@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.5](https://github.com/elyukai/ts-utils/compare/v0.1.4...v0.1.5) (2026-01-28)
+
+
+### Features
+
+* add toJSON to dictionary ([0418666](https://github.com/elyukai/ts-utils/commit/0418666bdb189c0c70813661ffb5763b31074ed0))
+* types dictionary keys ([0df86ce](https://github.com/elyukai/ts-utils/commit/0df86ce50bbfdc13353b1a17ab3de9d9ca56d19d))
+
 ## [0.1.4](https://github.com/elyukai/ts-utils/compare/v0.1.3...v0.1.4) (2026-01-24)
 
 
