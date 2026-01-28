@@ -224,7 +224,7 @@ export class Dictionary<
    */
   map<U extends AnyNonNullish | null>(
     mapFn: (value: T, key: K) => U,
-  ): Dictionary<U> {
+  ): Dictionary<U, K> {
     const newRecord: Partial<Record<K, U>> = {}
     for (const [key, value] of this.entries()) {
       newRecord[key] = mapFn(value, key)
