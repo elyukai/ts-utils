@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.6](https://github.com/elyukai/ts-utils/compare/v0.1.5...v0.1.6) (2026-01-28)
+
+
+### Bug Fixes
+
+* signature of map method ([3f8197f](https://github.com/elyukai/ts-utils/commit/3f8197fc7e8d5a003d493ae1460060e0c868e4db))
+
 ## [0.1.5](https://github.com/elyukai/ts-utils/compare/v0.1.4...v0.1.5) (2026-01-28)
 
 
