@@ -240,4 +240,13 @@ export class Dictionary<T extends AnyNonNullish | null> {
       initialValue,
     )
   }
+
+  /**
+   * Converts the dictionary to a plain object.
+   *
+   * This is automatically called when using `JSON.stringify`.
+   */
+  toJSON(): Record<string, T> {
+    return { ...this.record }
+  }
 }

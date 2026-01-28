@@ -234,3 +234,11 @@ describe("reduce", () => {
     assert.equal(result, 6)
   })
 })
+
+describe("toJSON", () => {
+  it("should convert the dictionary to a plain object", () => {
+    const dict = new Dict({ a: 1, b: 2, c: 3 })
+    const json = JSON.stringify(dict)
+    assert.equal(json, '{"a":1,"b":2,"c":3}')
+  })
+})
