@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.7](https://github.com/elyukai/ts-utils/compare/v0.1.6...v0.1.7) (2026-02-05)
+
+
+### Features
+
+* add bind function for partiall application ([bc11da5](https://github.com/elyukai/ts-utils/commit/bc11da568c8ce15c071432307abcb7143f40b5ee))
+
 ## [0.1.6](https://github.com/elyukai/ts-utils/compare/v0.1.5...v0.1.6) (2026-01-28)
 
 
