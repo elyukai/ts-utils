@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.0](https://github.com/elyukai/ts-utils/compare/v0.1.7...v0.2.0) (2026-02-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* merge forEach and forEachAsync
+
+### Features
+
+* merge forEach and forEachAsync ([15b419f](https://github.com/elyukai/ts-utils/commit/15b419fa962218a74133ff7ee85ca817c1fc989c))
+
 ## [0.1.7](https://github.com/elyukai/ts-utils/compare/v0.1.6...v0.1.7) (2026-02-05)
 
 
