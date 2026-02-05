@@ -121,16 +121,14 @@ describe("forEach", () => {
       ["c", 3],
     ])
   })
-})
 
-describe("forEachAsync", () => {
   it("should asynchronously iterate over each key-value pair", async () => {
     const dict = new Dict({ a: 1, b: 2, c: 3 })
     const result: [string, number][] = []
-    await dict.forEachAsync(async (value, key) => {
+    await dict.forEach(async (value, key) => {
       await wait(10) // Simulate async operation
       result.push([key, value])
-    })
+    }, true)
     assert.deepEqual(result.sort(), [
       ["a", 1],
       ["b", 2],

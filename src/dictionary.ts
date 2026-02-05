@@ -115,21 +115,28 @@ export class Dictionary<
 
   /**
    * Calls the given function for each key-value pair in the dictionary.
-   */
-  forEach(fn: (value: T, key: K) => void): void {
-    for (const [key, value] of this.entries()) {
-      fn(value, key)
-    }
-  }
-
-  /**
-   * Calls the given async function for each key-value pair in the dictionary.
    *
-   * The calls are made sequentially.
+   * If the `async` flag is used, the function calls the function with the values sequentially.
    */
-  async forEachAsync(fn: (value: T, key: K) => Promise<void>): Promise<void> {
-    for (const [key, value] of this.entries()) {
-      await fn(value, key)
+  forEach(fn: (value: T, key: K) => Promise<void>, async: true): Promise<void>
+  forEach(fn: (value: T, key: K) => void, async?: false): void
+  forEach(
+    ...args:
+      | [fn: (value: T, key: K) => Promise<void>, async: true]
+      | [fn: (value: T, key: K) => void, async?: false]
+  ): void | Promise<void> {
+    const [fn, async] = args
+
+    if (async === true) {
+      return (async () => {
+        for (const [key, value] of this.entries()) {
+          await fn(value, key)
+        }
+      })()
+    } else {
+      for (const [key, value] of this.entries()) {
+        fn(value, key)
+      }
     }
   }
 
