@@ -3,6 +3,7 @@
  * @module
  */
 
+import { Lazy } from "./lazy.ts"
 import type { AnyNonNullish } from "./nullable.js"
 import { omitKeys, omitUndefinedKeys } from "./object.js"
 
@@ -82,11 +83,13 @@ export class Dictionary<
     }
   }
 
+  #size = Lazy.of(() => this.keys().length)
+
   /**
    * The number of entries in the dictionary.
    */
   get size(): number {
-    return this.keys().length
+    return this.#size.value
   }
 
   /**
