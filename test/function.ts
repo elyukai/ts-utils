@@ -1,6 +1,6 @@
 import assert from "node:assert/strict"
 import { describe, it } from "node:test"
-import { andEvery, constant, not, on, orSome } from "../src/function.js"
+import { andEvery, bind, constant, not, on, orSome } from "../src/function.js"
 
 describe("constant", () => {
   it("returns a function that always returns the passed-in value as-is", () => {
@@ -55,5 +55,13 @@ describe("on", () => {
     const bob: Person = { name: "Bob", age: 25 }
 
     assert.equal(combineAges(alice, bob), 55)
+  })
+})
+
+describe("bind", () => {
+  it("returns a function that partially applies the given arguments", () => {
+    const add = (a: number, b: number) => a + b
+    const add5 = bind(add, 5)
+    assert.equal(add5(10), 15)
   })
 })

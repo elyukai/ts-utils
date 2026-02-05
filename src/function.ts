@@ -83,3 +83,28 @@ export const on =
   ): ((a: T, b: T) => V) =>
   (a, b) =>
     combinator(accessor(a), accessor(b))
+
+/**
+ * Returns a function that binds the given arguments to the provided function.
+ *
+ * This is useful for creating partially applied functions or for fixing certain arguments of a function while leaving others flexible.
+ *
+ * @param fn The function to bind arguments to.
+ * @param fixedArgs The arguments to bind to the function.
+ * @returns A new function that takes the remaining arguments and calls the original function with both the fixed and remaining arguments.
+ *
+ * @example
+ * ```ts
+ * const add = (a: number, b: number) => a + b;
+ * const add5 = bind(add, 5);
+ *
+ * console.log(add5(10)); // Output: 15
+ * ```
+ */
+export const bind =
+  <A extends unknown[], B extends unknown[], R>(
+    fn: (...args: [...A, ...B]) => R,
+    ...fixedArgs: A
+  ): ((...restArgs: B) => R) =>
+  (...restArgs) =>
+    fn(...fixedArgs, ...restArgs)
