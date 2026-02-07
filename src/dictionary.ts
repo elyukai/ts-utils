@@ -182,7 +182,7 @@ export class Dictionary<
   /**
    * Returns the first key that matches the given predicate, or `undefined` if no such key exists.
    */
-  findKey(predicate: (value: T, key: K) => boolean): string | undefined {
+  findKey(predicate: (value: T, key: K) => boolean): K | undefined {
     return this.findEntry(predicate)?.[0]
   }
 
@@ -245,7 +245,7 @@ export class Dictionary<
   /**
    * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
    */
-  reduce<U>(reducer: (acc: U, value: T, key: string) => U, initialValue: U): U {
+  reduce<U>(reducer: (acc: U, value: T, key: K) => U, initialValue: U): U {
     return this.entries().reduce(
       (acc, [key, item]) => reducer(acc, item, key),
       initialValue,
