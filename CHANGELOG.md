@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.1](https://github.com/elyukai/ts-utils/compare/v0.2.0...v0.2.1) (2026-02-07)
+
+
+### Bug Fixes
+
+* specific key type ([a8a7975](https://github.com/elyukai/ts-utils/commit/a8a79750d4323e44b17b9ba01152150de12b7792))
+
 ## [0.2.0](https://github.com/elyukai/ts-utils/compare/v0.1.7...v0.2.0) (2026-02-05)
 
 
