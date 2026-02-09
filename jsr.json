@@ -5,6 +5,7 @@
   "license": "MPL-2.0",
   "exports": {
     "./array/filters": "./src/array/filters.ts",
+    "./array/fixed": "./src/array/fixed.ts",
     "./array/generators": "./src/array/generators.ts",
     "./array/groups": "./src/array/groups.ts",
     "./array/modify": "./src/array/modify.ts",
