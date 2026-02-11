@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.2](https://github.com/elyukai/ts-utils/compare/v0.2.1...v0.2.2) (2026-02-11)
+
+
+### Features
+
+* add FixedArray helper ([4a1b61a](https://github.com/elyukai/ts-utils/commit/4a1b61a51ad53c35767adf716d4a64ef10f4dc10))
+* add static groupBy method to dictionary ([2ee4802](https://github.com/elyukai/ts-utils/commit/2ee4802db8f1b821819f4ced5f79079153a6c11e))
+
 ## [0.2.1](https://github.com/elyukai/ts-utils/compare/v0.2.0...v0.2.1) (2026-02-07)
 
 
