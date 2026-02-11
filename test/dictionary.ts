@@ -19,6 +19,27 @@ describe("fromEntries", () => {
   })
 })
 
+describe("groupBy", () => {
+  it("should group items by a key function", () => {
+    const items = [
+      { name: "Alice", age: 30 },
+      { name: "Bob", age: 40 },
+      { name: "Charlie", age: 30 },
+    ]
+    const dict = Dict.groupBy(items, (item) => item.age.toString())
+    assert.deepEqual(
+      dict,
+      new Dict({
+        "30": [
+          { name: "Alice", age: 30 },
+          { name: "Charlie", age: 30 },
+        ],
+        "40": [{ name: "Bob", age: 40 }],
+      }),
+    )
+  })
+})
+
 describe("get", () => {
   it("should get the value for a key", () => {
     const dict = new Dict<number>({ a: 1, b: 2 })

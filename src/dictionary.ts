@@ -38,6 +38,25 @@ export class Dictionary<
   }
 
   /**
+   * Groups the given items by the key returned by the given function and returns a dictionary mapping each key to an array of items with that key.
+   */
+  static groupBy<T, K extends string>(
+    items: T[],
+    keyFn: (item: T) => K,
+  ): Dictionary<T[], K> {
+    const record: Partial<Record<K, T[]>> = {}
+    for (const item of items) {
+      const key = keyFn(item)
+      if (record[key] === undefined) {
+        record[key] = [item]
+      } else {
+        record[key].push(item)
+      }
+    }
+    return new Dictionary(record)
+  }
+
+  /**
    * Returns the value associated with the given key, or `undefined` if the key does not exist.
    */
   get(key: K): T | undefined {
