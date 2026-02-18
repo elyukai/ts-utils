@@ -4,6 +4,11 @@
  */
 
 /**
+ * Returns the input value unchanged.
+ */
+export const identity = <T>(value: T): T => value
+
+/**
  * Returns a function that always returns the given value.
  * @param value The value to return from the new function.
  * @returns A new function that always returns the given value.
