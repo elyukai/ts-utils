@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.3](https://github.com/elyukai/ts-utils/compare/v0.2.2...v0.2.3) (2026-02-20)
+
+
+### Features
+
+* add basic reader monad ([1b25fb2](https://github.com/elyukai/ts-utils/commit/1b25fb2d948cb02d0d122eeefdc512fd4b781b4a))
+* add identity function ([1f5836c](https://github.com/elyukai/ts-utils/commit/1f5836cf015a554ba0cf1140467fe3bc1e44df05))
+* add more reader methods ([00408ed](https://github.com/elyukai/ts-utils/commit/00408edcbfa6b18fb20eede78c5f19efbe07fcd1))
+
 ## [0.2.2](https://github.com/elyukai/ts-utils/compare/v0.2.1...v0.2.2) (2026-02-11)
 
 
