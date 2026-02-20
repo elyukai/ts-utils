@@ -25,6 +25,7 @@
     "./object": "./src/object.ts",
     "./ordering": "./src/ordering.ts",
     "./range": "./src/range.ts",
+    "./reader": "./src/reader.ts",
     "./result": "./src/result.ts",
     "./roman": "./src/roman.ts",
     "./string": "./src/string.ts",
