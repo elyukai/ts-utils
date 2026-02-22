@@ -3,6 +3,8 @@
  * @module
  */
 
+import { isNotEmpty } from "./nonEmpty.ts"
+
 /**
  * Filters out duplicate values from an array. Objects are not supported, since
  * they don’t provide value equality semantics.
@@ -44,3 +46,16 @@ export const anySameIndices = <T>(
       : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- The index must exist according to the findIndex above
         acc.with(accIndex, [...acc[accIndex]!, index])
   }, [])
+
+/**
+ * Checks if all elements in the array are the same. An empty array is considered to satisfy this condition.
+ *
+ * @param arr The array to check.
+ * @param equalityCheck An optional function to determine if two elements are considered the same. Defaults to strict shallow equality.
+ * @returns `true` if all elements in the array are the same, otherwise `false`.
+ */
+export const allSame = <T>(
+  arr: T[],
+  equalityCheck: (a: T, b: T) => boolean = (a, b) => a === b,
+): boolean =>
+  isNotEmpty(arr) ? arr.every((item) => equalityCheck(item, arr[0])) : true
