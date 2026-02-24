@@ -61,6 +61,15 @@ describe("with", () => {
   })
 })
 
+describe("traverse", () => {
+  it("applies a function to each value in the array and returns a Reader that produces an array of the results", () => {
+    const reader = Reader.traverse([1, 2, 3], (x) =>
+      Reader.asks((env: { multiplier: number }) => x * env.multiplier),
+    )
+    deepEqual(reader.run({ multiplier: 2 }), [2, 4, 6])
+  })
+})
+
 describe("sequence", () => {
   it("transforms an array of Readers into a Reader that produces an array of their results", () => {
     const readers: Reader<{ foo: string; bar: number }, string | number>[] = [
