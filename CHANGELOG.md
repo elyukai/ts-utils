@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.6](https://github.com/elyukai/ts-utils/compare/v0.2.5...v0.2.6) (2026-02-24)
+
+
+### Features
+
+* add static traverse method to Reader ([693840d](https://github.com/elyukai/ts-utils/commit/693840dde90a0f4d650b0e075610e21a6b1a4318))
+* safe non-empty array map method call ([5a97a69](https://github.com/elyukai/ts-utils/commit/5a97a69f25ac8431d3bc29405b312f750f0e30b9))
+
 ## [0.2.5](https://github.com/elyukai/ts-utils/compare/v0.2.4...v0.2.5) (2026-02-22)
 
 
