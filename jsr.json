@@ -24,6 +24,7 @@
     "./number": "./src/number.ts",
     "./object": "./src/object.ts",
     "./ordering": "./src/ordering.ts",
+    "./parser": "./src/parser.ts",
     "./range": "./src/range.ts",
     "./reader": "./src/reader.ts",
     "./result": "./src/result.ts",
