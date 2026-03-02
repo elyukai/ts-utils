@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.9](https://github.com/elyukai/ts-utils/compare/v0.2.8...v0.2.9) (2026-03-02)
+
+
+### Features
+
+* add simple parser combinator class ([33ead55](https://github.com/elyukai/ts-utils/commit/33ead55758fb5cb8dc20de2d53a69f1973ec3c3e))
+* extend parser, add state and combine both ([dd9a3f6](https://github.com/elyukai/ts-utils/commit/dd9a3f680c2b80658aff19103ecbfa3a4d81bdaf))
+
+
+### Bug Fixes
+
+* slow type ([e8d6fb6](https://github.com/elyukai/ts-utils/commit/e8d6fb63e79937a01b8f15441147bc2b72686e97))
+
 ## [0.2.8](https://github.com/elyukai/ts-utils/compare/v0.2.7...v0.2.8) (2026-02-24)
 
 ## [0.2.7](https://github.com/elyukai/ts-utils/compare/v0.2.6...v0.2.7) (2026-02-24)
