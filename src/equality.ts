@@ -48,14 +48,10 @@ export const notEqual = <T>(a: T, b: T): boolean => !Object.is(a, b)
  *
  * Use {@link deepEqual} for a deep equality check.
  */
-export const arrayEqual = <
-  T extends number | boolean | string | symbol | null | undefined,
->(
+export const arrayEqual = <T extends number | boolean | string | symbol | null | undefined>(
   arr1: T[],
   arr2: T[],
-): boolean =>
-  arr1.length === arr2.length &&
-  arr1.every((value, index) => equal(value, arr2[index]))
+): boolean => arr1.length === arr2.length && arr1.every((value, index) => equal(value, arr2[index]))
 
 /**
  * Checks two values for value equality. This is a deep equality check that
@@ -67,20 +63,13 @@ export const deepEqual = <T>(a: T, b: T): boolean => {
     return true
   }
 
-  if (
-    typeof a === "object" &&
-    typeof b === "object" &&
-    a !== null &&
-    b !== null
-  ) {
+  if (typeof a === "object" && typeof b === "object" && a !== null && b !== null) {
     const keys = Object.keys(a)
     if (keys.length !== Object.keys(b).length) {
       return false
     }
     return keys.every(
-      (key) =>
-        key in b &&
-        deepEqual(a[key as keyof typeof a], b[key as keyof typeof b]),
+      key => key in b && deepEqual(a[key as keyof typeof a], b[key as keyof typeof b]),
     )
   }
 

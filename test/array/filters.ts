@@ -1,11 +1,6 @@
 import { deepEqual } from "node:assert/strict"
 import { describe, it } from "node:test"
-import {
-  allSame,
-  anySame,
-  anySameIndices,
-  unique,
-} from "../../src/array/filters.js"
+import { allSame, anySame, anySameIndices, unique } from "../../src/array/filters.js"
 
 describe("unique", () => {
   it("filters out duplicate values from an array", () => {
@@ -26,8 +21,7 @@ describe("anySame", () => {
 
   it("checks for duplicate values from the array using custom equality checks", () => {
     const arr = [{ id: 1 }, { id: 2 }, { id: 1 }]
-    const equalityCheck = (a: { id: number }, b: { id: number }) =>
-      a.id === b.id
+    const equalityCheck = (a: { id: number }, b: { id: number }) => a.id === b.id
     deepEqual(anySame(arr, equalityCheck), true)
   })
 })
@@ -46,8 +40,7 @@ describe("anySameIndices", () => {
 
   it("checks for duplicate values from the array using custom equality checks", () => {
     const arr = [{ id: 1 }, { id: 2 }, { id: 1 }]
-    const equalityCheck = (a: { id: number }, b: { id: number }) =>
-      a.id === b.id
+    const equalityCheck = (a: { id: number }, b: { id: number }) => a.id === b.id
     deepEqual(anySameIndices(arr, equalityCheck), [[0, 2]])
   })
 })
@@ -64,8 +57,7 @@ describe("allSame", () => {
 
   it("checks if all values from the array are the same using custom equality checks", () => {
     const arr = [{ id: 1 }, { id: 1 }, { id: 1 }]
-    const equalityCheck = (a: { id: number }, b: { id: number }) =>
-      a.id === b.id
+    const equalityCheck = (a: { id: number }, b: { id: number }) => a.id === b.id
     deepEqual(allSame(arr, equalityCheck), true)
   })
 })

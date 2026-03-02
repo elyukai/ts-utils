@@ -21,8 +21,8 @@ describe("reduceCompare", () => {
         { first: 2, second: 3 },
       ].sort(
         reduceCompare(
-          on((x) => x.first, compareNumber),
-          on((x) => x.second, reverse(compareNumber)),
+          on(x => x.first, compareNumber),
+          on(x => x.second, reverse(compareNumber)),
         ),
       ),
       [
@@ -48,32 +48,20 @@ describe("compareNumber", () => {
 describe("compareDate", () => {
   it("returns a negative value if the first date is earlier than the second date", () => {
     equal(
-      compareDate(
-        new Date(2000, 0, 1, 12, 0, 0, 100),
-        new Date(2000, 0, 1, 12, 0, 0, 200),
-      ),
+      compareDate(new Date(2000, 0, 1, 12, 0, 0, 100), new Date(2000, 0, 1, 12, 0, 0, 200)),
       -100,
     )
   })
 
   it("returns a positive value if the first date is later than the second date", () => {
     equal(
-      compareDate(
-        new Date(2000, 0, 1, 12, 0, 0, 300),
-        new Date(2000, 0, 1, 12, 0, 0, 200),
-      ),
+      compareDate(new Date(2000, 0, 1, 12, 0, 0, 300), new Date(2000, 0, 1, 12, 0, 0, 200)),
       100,
     )
   })
 
   it("returns zero if the first date is equal to the second date", () => {
-    equal(
-      compareDate(
-        new Date(2000, 0, 1, 12, 0, 0, 200),
-        new Date(2000, 0, 1, 12, 0, 0, 200),
-      ),
-      0,
-    )
+    equal(compareDate(new Date(2000, 0, 1, 12, 0, 0, 200), new Date(2000, 0, 1, 12, 0, 0, 200)), 0)
   })
 })
 
@@ -81,13 +69,7 @@ describe("compareNullish", () => {
   const compareNullishNumber = compareNullish(compareNumber)
 
   it("sorts nullish values before non-nullish values", () => {
-    deepEqual([3, null, 1, undefined, 2].sort(compareNullishNumber), [
-      1,
-      2,
-      3,
-      null,
-      undefined,
-    ])
+    deepEqual([3, null, 1, undefined, 2].sort(compareNullishNumber), [1, 2, 3, null, undefined])
   })
 
   it("sorts non-nullish values using the provided compare function", () => {

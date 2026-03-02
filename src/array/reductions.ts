@@ -33,25 +33,20 @@ export const reduceWhile = <T, U>(
 /**
  * Returns the sum of all numbers in the given array.
  */
-export const sum = (arr: number[]): number =>
-  arr.reduce((acc, value) => acc + value, 0)
+export const sum = (arr: number[]): number => arr.reduce((acc, value) => acc + value, 0)
 
 /**
  * Returns the sum of values returned by applying the given function to each
  * element in the array.
  */
-export const sumWith = <T>(
-  arr: T[],
-  fn: (value: T, index: number) => number,
-): number => arr.reduce((acc, value, index) => acc + fn(value, index), 0)
+export const sumWith = <T>(arr: T[], fn: (value: T, index: number) => number): number =>
+  arr.reduce((acc, value, index) => acc + fn(value, index), 0)
 
 /**
  * Counts the number of elements in an array that satisfy the given predicate.
  */
-export const count = <T>(
-  arr: T[],
-  predicate: (value: T, index: number) => boolean,
-): number => sumWith(arr, (value, index) => (predicate(value, index) ? 1 : 0))
+export const count = <T>(arr: T[], predicate: (value: T, index: number) => boolean): number =>
+  sumWith(arr, (value, index) => (predicate(value, index) ? 1 : 0))
 
 /**
  * Counts the number of elements the function returns the same value for and
@@ -77,7 +72,7 @@ export const countByMany = <T, K extends string | number | symbol>(
 ): Partial<Record<K, number>> =>
   arr.reduce<Partial<Record<K, number>>>((acc, value, index) => {
     const keys = fn(value, index)
-    unique(keys).forEach((key) => {
+    unique(keys).forEach(key => {
       acc[key] = (acc[key] ?? 0) + 1
     })
     return acc
@@ -95,6 +90,6 @@ export const someCount = <T>(
   reduceWhile(
     arr,
     (acc, value) => (predicate(value) ? acc + 1 : acc),
-    (acc) => acc >= minCount,
+    acc => acc >= minCount,
     0,
   ) >= minCount

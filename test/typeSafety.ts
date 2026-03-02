@@ -7,8 +7,7 @@ describe("assertExhaustive", () => {
     assert.throws(
       // @ts-expect-error The function should never receive a value.
       () => assertExhaustive(""),
-      (err) =>
-        err instanceof Error && err.message === "The switch is not exhaustive.",
+      err => err instanceof Error && err.message === "The switch is not exhaustive.",
     )
   })
 
@@ -16,7 +15,7 @@ describe("assertExhaustive", () => {
     assert.throws(
       // @ts-expect-error The function should never receive a value.
       () => assertExhaustive("", "Custom error message"),
-      (err) => err instanceof Error && err.message === "Custom error message",
+      err => err instanceof Error && err.message === "Custom error message",
     )
   })
 })

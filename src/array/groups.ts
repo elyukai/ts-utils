@@ -17,10 +17,7 @@ export function partition<T, T1 extends T>(
   arr: T[],
   predicate: (value: T) => value is T1,
 ): [pos: T1[], neg: T[]]
-export function partition<T>(
-  arr: T[],
-  predicate: (value: T) => boolean,
-): [pos: T[], neg: T[]]
+export function partition<T>(arr: T[], predicate: (value: T) => boolean): [pos: T[], neg: T[]]
 /**
  * Partitions an array into two arrays based on a predicate.
  * @param arr The array to split.
@@ -29,10 +26,7 @@ export function partition<T>(
  * that satisfy the predicate, the second one containing all elements that do
  * not satisfy the predicate.
  */
-export function partition<T>(
-  arr: T[],
-  predicate: (value: T) => boolean,
-): [pos: T[], neg: T[]] {
+export function partition<T>(arr: T[], predicate: (value: T) => boolean): [pos: T[], neg: T[]] {
   return arr.reduce<[T[], T[]]>(
     (acc, value) => {
       acc[predicate(value) ? 0 : 1].push(value)
@@ -66,9 +60,7 @@ export const groupBy = <T>(arr: T[], equal: Equality<T>): T[][] =>
  */
 export const chunk = <T>(arr: T[], size: number): T[][] => {
   if (size <= 0) {
-    throw new RangeError(
-      `size must be a positive integer, got ${size.toString()}`,
-    )
+    throw new RangeError(`size must be a positive integer, got ${size.toString()}`)
   }
 
   return arr.reduce((chunks: T[][], item, index) => {

@@ -6,9 +6,7 @@
 /**
  * Extracts `null` and `undefined` from a type.
  */
-export type Nullish<T = null | undefined> = T extends null | undefined
-  ? T
-  : never
+export type Nullish<T = null | undefined> = T extends null | undefined ? T : never
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type -- source for intentional empty object type
 export interface AnyNonNullish {}
@@ -22,16 +20,13 @@ export const isNullish = <T>(value: T): value is Exclude<T, NonNullable<T>> =>
 /**
  * Checks if a value is not `null` or `undefined`.
  */
-export const isNotNullish = <T>(value: T): value is NonNullable<T> =>
-  !isNullish(value)
+export const isNotNullish = <T>(value: T): value is NonNullable<T> => !isNullish(value)
 
 /**
  * Maps a value to another value if it is not `null` or `undefined`.
  */
-export const mapNullable = <T, U>(
-  value: T,
-  map: (value: NonNullable<T>) => U,
-): U | Nullish<T> => (isNotNullish(value) ? map(value) : (value as Nullish<T>))
+export const mapNullable = <T, U>(value: T, map: (value: NonNullable<T>) => U): U | Nullish<T> =>
+  isNotNullish(value) ? map(value) : (value as Nullish<T>)
 
 /**
  * Maps a value to another value if it is not `null` or `undefined`, otherwise
@@ -66,10 +61,7 @@ export const ensure: {
   /**
    * Returns the value if it matches the given predicate, otherwise `undefined`.
    */
-  <T, T1 extends T>(
-    value: T,
-    predicate: (value: T) => value is T1,
-  ): T1 | undefined
+  <T, T1 extends T>(value: T, predicate: (value: T) => value is T1): T1 | undefined
   /**
    * Returns the value if it matches the given predicate, otherwise `undefined`.
    */

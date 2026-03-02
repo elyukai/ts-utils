@@ -29,35 +29,35 @@ export class Reader<in R, out T> {
    * Retrieve the entire environment.
    */
   static ask<R>(): Reader<R, R> {
-    return new Reader((env) => env)
+    return new Reader(env => env)
   }
 
   /**
    * Retrieve a transformed value of the environment.
    */
   static asks<R, T>(f: (env: R) => T): Reader<R, T> {
-    return new Reader((env) => f(env))
+    return new Reader(env => f(env))
   }
 
   /**
    * Applies the given function to the value produced by this Reader and returns a new Reader that produces the result.
    */
   map<U>(f: (value: T) => U): Reader<R, U> {
-    return new Reader((env) => f(this.#fn(env)))
+    return new Reader(env => f(this.#fn(env)))
   }
 
   /**
    * Combines this Reader with another Reader by applying a function to both of their results and returning a new Reader that produces the result.
    */
   map2<U, V>(other: Reader<R, U>, f: (first: T, second: U) => V): Reader<R, V> {
-    return new Reader((env) => f(this.#fn(env), other.#fn(env)))
+    return new Reader(env => f(this.#fn(env), other.#fn(env)))
   }
 
   /**
    * Applies the given function to the value produced by this Reader and returns a new Reader that produces the result. The function must return a Reader, which allows you to chain computations that depend on the same environment.
    */
   then<U>(f: (value: T) => Reader<R, U>): Reader<R, U> {
-    return new Reader((env) => f(this.#fn(env)).#fn(env))
+    return new Reader(env => f(this.#fn(env)).#fn(env))
   }
 
   /**
@@ -66,7 +66,7 @@ export class Reader<in R, out T> {
    * The suffix ‘W’ stands for ‘widening’, as this method allows you to widen the environment that the Reader depends on.
    */
   thenW<U, S>(f: (value: T) => Reader<S, U>): Reader<R & S, U> {
-    return new Reader((env) => f(this.#fn(env)).#fn(env))
+    return new Reader(env => f(this.#fn(env)).#fn(env))
   }
 
   /**
@@ -75,7 +75,7 @@ export class Reader<in R, out T> {
    * This allows you to adapt the environment for a specific computation without changing the original Reader.
    */
   with<S>(modifyEnv: (env: S) => R): Reader<S, T> {
-    return new Reader((env) => this.#fn(modifyEnv(env)))
+    return new Reader(env => this.#fn(modifyEnv(env)))
   }
 
   /**
@@ -88,11 +88,8 @@ export class Reader<in R, out T> {
   /**
    * Apply a function to each value in the array, and return a Reader that produces an array of the results.
    */
-  static traverse<T, R, U>(
-    values: T[],
-    fn: (value: T) => Reader<R, U>,
-  ): Reader<R, U[]> {
-    return new Reader((env) => values.map((value) => fn(value).run(env)))
+  static traverse<T, R, U>(values: T[], fn: (value: T) => Reader<R, U>): Reader<R, U[]> {
+    return new Reader(env => values.map(value => fn(value).run(env)))
   }
 
   /**
@@ -111,7 +108,7 @@ export class Reader<in R, out T> {
     fn: (...args: Args) => Reader<R, T>,
   ): Reader<R, (...args: Args) => T> {
     return new Reader(
-      (env) =>
+      env =>
         (...args: Args) =>
           fn(...args).run(env),
     )
@@ -125,7 +122,7 @@ export class Reader<in R, out T> {
   static undefer<Args extends unknown[], R, T>(
     reader: Reader<R, (...args: Args) => T>,
   ): (...args: Args) => Reader<R, T> {
-    return (...args: Args) => new Reader((env) => reader.run(env)(...args))
+    return (...args: Args) => new Reader(env => reader.run(env)(...args))
   }
 }
 

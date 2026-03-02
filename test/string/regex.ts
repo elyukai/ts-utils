@@ -1,12 +1,6 @@
 import assert from "node:assert/strict"
 import { describe, it } from "node:test"
-import {
-  isEmptyOr,
-  isFloat,
-  isInteger,
-  isNaturalNumber,
-  isUrl,
-} from "../../src/string/regex.js"
+import { isEmptyOr, isFloat, isInteger, isNaturalNumber, isUrl } from "../../src/string/regex.js"
 
 describe("isNaturalNumber", () => {
   it("returns if the passed string represents a natural number", () => {

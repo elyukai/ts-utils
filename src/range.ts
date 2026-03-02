@@ -23,9 +23,7 @@ export const range: {
   const [start, end] = normalizeBounds(args)
 
   if (start > end) {
-    throw new RangeError(
-      "The upper bound must be greater than or equal to the lower bound.",
-    )
+    throw new RangeError("The upper bound must be greater than or equal to the lower bound.")
   }
 
   return Array.from({ length: end - start + 1 }, (_, i) => i + start)

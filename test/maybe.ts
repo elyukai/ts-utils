@@ -71,15 +71,13 @@ describe(fromNullable.name, () => {
 describe(reduce.name, () => {
   it("returns the default value if the maybe contains nothing", () => {
     const maybe = Nothing
-    const result = reduce<string, string>(maybe, "default", (value) =>
-      value.toUpperCase(),
-    )
+    const result = reduce<string, string>(maybe, "default", value => value.toUpperCase())
     assert.equal(result, "default")
   })
 
   it("applies the function to the value if the maybe contains a value", () => {
     const maybe = Just("hello")
-    const result = reduce(maybe, "default", (value) => value.toUpperCase())
+    const result = reduce(maybe, "default", value => value.toUpperCase())
     assert.equal(result, "HELLO")
   })
 })
@@ -87,13 +85,13 @@ describe(reduce.name, () => {
 describe(map.name, () => {
   it("returns a maybe that contains nothing if the input maybe contains nothing", () => {
     const maybe = Nothing
-    const result = map<string, string>(maybe, (value) => value.toUpperCase())
+    const result = map<string, string>(maybe, value => value.toUpperCase())
     assert.deepEqual(result, { tag: "Nothing" })
   })
 
   it("applies the function to the value if the input maybe contains a value", () => {
     const maybe = Just("hello")
-    const result = map(maybe, (value) => value.toUpperCase())
+    const result = map(maybe, value => value.toUpperCase())
     assert.deepEqual(result, { tag: "Just", value: "HELLO" })
   })
 })
@@ -101,13 +99,13 @@ describe(map.name, () => {
 describe("then", () => {
   it("returns a maybe that contains nothing if the input maybe contains nothing", () => {
     const maybe: Maybe<string> = Nothing
-    const result = then(maybe, (value) => Just(value.toUpperCase()))
+    const result = then(maybe, value => Just(value.toUpperCase()))
     assert.deepEqual(result, { tag: "Nothing" })
   })
 
   it("applies the function to the value if the input maybe contains a value", () => {
     const maybe: Maybe<string> = Just("hello")
-    const result = then(maybe, (value) => Just(value.toUpperCase()))
+    const result = then(maybe, value => Just(value.toUpperCase()))
     assert.deepEqual(result, { tag: "Just", value: "HELLO" })
   })
 })
@@ -116,22 +114,14 @@ describe(combine.name, () => {
   it("returns a maybe that contains nothing if either input maybe contains nothing", () => {
     const maybe1 = Just("hello")
     const maybe2 = Nothing
-    const result = combine(
-      maybe1,
-      maybe2,
-      (value1, value2) => value1 + (value2 as string),
-    )
+    const result = combine(maybe1, maybe2, (value1, value2) => value1 + (value2 as string))
     assert.deepEqual(result, { tag: "Nothing" })
   })
 
   it("applies the function to the values if both input maybes contain a value", () => {
     const maybe1 = Just("hello")
     const maybe2 = Just("world")
-    const result = combine(
-      maybe1,
-      maybe2,
-      (value1, value2) => `${value1} ${value2}`,
-    )
+    const result = combine(maybe1, maybe2, (value1, value2) => `${value1} ${value2}`)
     assert.deepEqual(result, { tag: "Just", value: "hello world" })
   })
 })

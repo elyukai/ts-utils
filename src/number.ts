@@ -6,8 +6,7 @@
 /**
  * Returns a random integer between `0` and `max` (inclusive).
  */
-export const randomInt = (max: number): number =>
-  Math.floor(Math.random() * (max + 1))
+export const randomInt = (max: number): number => Math.floor(Math.random() * (max + 1))
 
 /**
  * Returns a random integer between `min` and `max` (inclusive).

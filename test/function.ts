@@ -1,14 +1,6 @@
 import assert from "node:assert/strict"
 import { describe, it } from "node:test"
-import {
-  andEvery,
-  bind,
-  constant,
-  identity,
-  not,
-  on,
-  orSome,
-} from "../src/function.js"
+import { andEvery, bind, constant, identity, not, on, orSome } from "../src/function.js"
 
 describe("identity", () => {
   it("returns the input value unchanged", () => {

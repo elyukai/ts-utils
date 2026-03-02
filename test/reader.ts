@@ -26,23 +26,21 @@ describe("asks", () => {
 
 describe("map", () => {
   it("applies a function to the value produced by the Reader", () => {
-    const reader = Reader.of(42).map((x) => x + 1)
+    const reader = Reader.of(42).map(x => x + 1)
     equal(reader.run({}), 43)
   })
 })
 
 describe("then", () => {
   it("chains computations that depend on the same environment", () => {
-    const reader = Reader.ask<{ foo: string }>().then((env) =>
-      Reader.of(env.foo.length),
-    )
+    const reader = Reader.ask<{ foo: string }>().then(env => Reader.of(env.foo.length))
     equal(reader.run({ foo: "bar" }), 3)
   })
 })
 
 describe("thenW", () => {
   it("chains computations that depend on a shared environment", () => {
-    const reader = Reader.ask<{ foo: string }>().thenW((env) =>
+    const reader = Reader.ask<{ foo: string }>().thenW(env =>
       Reader.asks((otherEnv: { bar: number }) => env.foo.length + otherEnv.bar),
     )
     equal(reader.run({ foo: "bar", bar: 2 }), 5)
@@ -51,19 +49,17 @@ describe("thenW", () => {
 
 describe("with", () => {
   it("modifies the environment for a specific computation", () => {
-    const reader = Reader.ask<{ foo: string }>().with(
-      (env: { foo: string }) => ({
-        ...env,
-        foo: env.foo.toUpperCase(),
-      }),
-    )
+    const reader = Reader.ask<{ foo: string }>().with((env: { foo: string }) => ({
+      ...env,
+      foo: env.foo.toUpperCase(),
+    }))
     deepEqual(reader.run({ foo: "bar" }), { foo: "BAR" })
   })
 })
 
 describe("traverse", () => {
   it("applies a function to each value in the array and returns a Reader that produces an array of the results", () => {
-    const reader = Reader.traverse([1, 2, 3], (x) =>
+    const reader = Reader.traverse([1, 2, 3], x =>
       Reader.asks((env: { multiplier: number }) => x * env.multiplier),
     )
     deepEqual(reader.run({ multiplier: 2 }), [2, 4, 6])
@@ -94,9 +90,7 @@ describe("defer", () => {
 describe("undefer", () => {
   it("transforms a Reader that produces a function into a function that returns a Reader", () => {
     const reader = Reader.undefer(
-      Reader.asks(
-        (env: { multiplier: number }) => (x: number) => x * env.multiplier,
-      ),
+      Reader.asks((env: { multiplier: number }) => (x: number) => x * env.multiplier),
     )
     const multiplyBy2 = reader(2)
     equal(multiplyBy2.run({ multiplier: 3 }), 6)

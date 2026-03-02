@@ -10,10 +10,7 @@ import { omitKeys, omitUndefinedKeys } from "./object.js"
 /**
  * An immutable dictionary mapping strings to values.
  */
-export class Dictionary<
-  T extends AnyNonNullish | null,
-  K extends string = string,
-> {
+export class Dictionary<T extends AnyNonNullish | null, K extends string = string> {
   private record: Readonly<Partial<Record<K, T>>>
 
   /**
@@ -40,10 +37,7 @@ export class Dictionary<
   /**
    * Groups the given items by the key returned by the given function and returns a dictionary mapping each key to an array of items with that key.
    */
-  static groupBy<T, K extends string>(
-    items: T[],
-    keyFn: (item: T) => K,
-  ): Dictionary<T[], K> {
+  static groupBy<T, K extends string>(items: T[], keyFn: (item: T) => K): Dictionary<T[], K> {
     const record: Partial<Record<K, T[]>> = {}
     for (const item of items) {
       const key = keyFn(item)
@@ -94,9 +88,7 @@ export class Dictionary<
    */
   remove(key: K): Dictionary<T, K> {
     if (this.has(key)) {
-      return new Dictionary<T, K>(
-        omitKeys(this.record, key) as Partial<Record<K, T>>,
-      )
+      return new Dictionary<T, K>(omitKeys(this.record, key) as Partial<Record<K, T>>)
     } else {
       return this
     }
@@ -166,10 +158,7 @@ export class Dictionary<
    * If the `modifyFn` returns `undefined`, the key will be removed from the dictionary.
    * Otherwise, the key will be set to the new value returned by `modifyFn`.
    */
-  modify(
-    key: K,
-    modifyFn: (currentValue: T | undefined) => T | undefined,
-  ): Dictionary<T, K> {
+  modify(key: K, modifyFn: (currentValue: T | undefined) => T | undefined): Dictionary<T, K> {
     const currentValue = this.get(key)
     const newValue = modifyFn(currentValue)
 
@@ -214,15 +203,11 @@ export class Dictionary<
   /**
    * Returns the first key-value pair that matches the given predicate, or `undefined` if no such key-value pair exists.
    */
-  findEntry(
-    predicate: (value: T, key: K) => boolean,
-  ): [key: K, value: T] | undefined
+  findEntry(predicate: (value: T, key: K) => boolean): [key: K, value: T] | undefined
   /**
    * Returns the first key-value pair that matches the given predicate, or `undefined` if no such key-value pair exists.
    */
-  findEntry(
-    predicate: (value: T, key: K) => boolean,
-  ): [key: K, value: T] | undefined {
+  findEntry(predicate: (value: T, key: K) => boolean): [key: K, value: T] | undefined {
     for (const [key, value] of this.entries()) {
       if (predicate(value, key)) {
         return [key, value]
@@ -251,9 +236,7 @@ export class Dictionary<
   /**
    * Applies a function to every key-value pair in the dictionary.
    */
-  map<U extends AnyNonNullish | null>(
-    mapFn: (value: T, key: K) => U,
-  ): Dictionary<U, K> {
+  map<U extends AnyNonNullish | null>(mapFn: (value: T, key: K) => U): Dictionary<U, K> {
     const newRecord: Partial<Record<K, U>> = {}
     for (const [key, value] of this.entries()) {
       newRecord[key] = mapFn(value, key)
@@ -265,10 +248,7 @@ export class Dictionary<
    * Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
    */
   reduce<U>(reducer: (acc: U, value: T, key: K) => U, initialValue: U): U {
-    return this.entries().reduce(
-      (acc, [key, item]) => reducer(acc, item, key),
-      initialValue,
-    )
+    return this.entries().reduce((acc, [key, item]) => reducer(acc, item, key), initialValue)
   }
 
   /**

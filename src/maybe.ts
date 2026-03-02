@@ -32,8 +32,7 @@ export const Just = <T>(value: T): Maybe<T> => ({ tag: "Just", value })
 /**
  * Checks if a maybe contains a value.
  */
-export const isJust = <T>(result: Maybe<T>): result is Just<T> =>
-  result.tag === "Just"
+export const isJust = <T>(result: Maybe<T>): result is Just<T> => result.tag === "Just"
 
 /**
  * Creates a maybe that contains nothing.
@@ -44,8 +43,7 @@ export const Nothing: Maybe<never> = { tag: "Nothing" }
 /**
  * Checks if a maybe contains nothing.
  */
-export const isNothing = <T>(result: Maybe<T>): result is Nothing =>
-  result.tag === "Nothing"
+export const isNothing = <T>(result: Maybe<T>): result is Nothing => result.tag === "Nothing"
 
 /**
  * Creates a maybe from a nullable value.
@@ -68,10 +66,8 @@ export const map = <T, U>(maybe: Maybe<T>, f: (value: T) => U): Maybe<U> =>
 /**
  * Chains a result to a new result.
  */
-export const then = <T, U>(
-  maybe: Maybe<T>,
-  f: (value: T) => Maybe<U>,
-): Maybe<U> => (isJust(maybe) ? f(maybe.value) : maybe)
+export const then = <T, U>(maybe: Maybe<T>, f: (value: T) => Maybe<U>): Maybe<U> =>
+  isJust(maybe) ? f(maybe.value) : maybe
 
 /**
  * Combines two maybes into one maybe. If both maybes contain a value, the
@@ -82,7 +78,4 @@ export const combine = <T1, T2, TR>(
   maybe1: Maybe<T1>,
   maybe2: Maybe<T2>,
   f: (value1: T1, value2: T2) => TR,
-): Maybe<TR> =>
-  isJust(maybe1) && isJust(maybe2)
-    ? Just(f(maybe1.value, maybe2.value))
-    : Nothing
+): Maybe<TR> => (isJust(maybe1) && isJust(maybe2) ? Just(f(maybe1.value, maybe2.value)) : Nothing)

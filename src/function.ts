@@ -25,22 +25,18 @@ export const constant =
 export const andEvery =
   <T>(...predicates: ((value: T) => boolean)[]) =>
   (value: T): boolean =>
-    predicates.every((predicate) => predicate(value))
+    predicates.every(predicate => predicate(value))
 
 export function orSome<T, U extends T, V extends T>(
   f: (value: T) => value is U,
   g: (value: T) => value is V,
 ): (value: T) => value is U | V
-export function orSome<T>(
-  ...fns: ((value: T) => boolean)[]
-): (value: T) => boolean
+export function orSome<T>(...fns: ((value: T) => boolean)[]): (value: T) => boolean
 /**
  * Returns a function that combines predicate functions disjunctionally.
  */
-export function orSome<T>(
-  ...predicates: ((value: T) => boolean)[]
-): (value: T) => boolean {
-  return (value) => predicates.some((predicate) => predicate(value))
+export function orSome<T>(...predicates: ((value: T) => boolean)[]): (value: T) => boolean {
+  return value => predicates.some(predicate => predicate(value))
 }
 
 /**
@@ -82,10 +78,7 @@ export const not =
  * ```
  */
 export const on =
-  <T, U, V>(
-    accessor: (value: T) => U,
-    combinator: (a: U, b: U) => V,
-  ): ((a: T, b: T) => V) =>
+  <T, U, V>(accessor: (value: T) => U, combinator: (a: U, b: U) => V): ((a: T, b: T) => V) =>
   (a, b) =>
     combinator(accessor(a), accessor(b))
 

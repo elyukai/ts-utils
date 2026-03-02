@@ -11,8 +11,7 @@ const floatPattern = /^(?:(?:0|-?[1-9][0-9]*)(?:[.,][0-9]+)?)$/u
  * Checks if the provided string is a string representation of a natural number.
  * @param test The string to test.
  */
-export const isNaturalNumber = (test: string): boolean =>
-  naturalNumberPattern.test(test)
+export const isNaturalNumber = (test: string): boolean => naturalNumberPattern.test(test)
 
 /**
  * Checks if the provided string is a string representation of an integer.
@@ -33,10 +32,8 @@ export const isFloat = (test: string): boolean => floatPattern.test(test)
  * @param check The test function to apply if the string is not empty.
  * @param test The string to test.
  */
-export const isEmptyOr = (
-  check: (test: string) => boolean,
-  test: string,
-): boolean => test === "" || check(test)
+export const isEmptyOr = (check: (test: string) => boolean, test: string): boolean =>
+  test === "" || check(test)
 
 /**
  * Checks if the provided string is a valid URL.

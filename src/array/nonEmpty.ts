@@ -21,8 +21,7 @@ export const isEmpty = (arr: unknown[]): arr is EmptyArray => arr.length === 0
 /**
  * Checks if the array is not empty, i.e., contains at least one element.
  */
-export const isNotEmpty = <T>(arr: T[]): arr is NonEmptyArray<T> =>
-  !isEmpty(arr)
+export const isNotEmpty = <T>(arr: T[]): arr is NonEmptyArray<T> => !isEmpty(arr)
 
 /**
  * Returns `undefined` if the array is empty, otherwise the non-empty array.

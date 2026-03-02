@@ -35,8 +35,7 @@ export const ok: {
 /**
  * Checks if a result contains a value.
  */
-export const isOk = <T, E>(result: Result<T, E>): result is Ok<T> =>
-  result.tag === "Ok"
+export const isOk = <T, E>(result: Result<T, E>): result is Ok<T> => result.tag === "Ok"
 
 /**
  * Creates a result that contains an error.
@@ -52,8 +51,7 @@ export const error: {
 /**
  * Checks if a result contains an error.
  */
-export const isError = <T, E>(result: Result<T, E>): result is Error<E> =>
-  result.tag === "Error"
+export const isError = <T, E>(result: Result<T, E>): result is Error<E> => result.tag === "Error"
 
 /**
  * Reduces a result to a value of a common type.
@@ -67,26 +65,20 @@ export const reduce = <T, E, R>(
 /**
  * Maps the value of a result to a new value.
  */
-export const map = <T, U, E>(
-  result: Result<T, E>,
-  f: (value: T) => U,
-): Result<U, E> => (isOk(result) ? ok(f(result.value)) : result)
+export const map = <T, U, E>(result: Result<T, E>, f: (value: T) => U): Result<U, E> =>
+  isOk(result) ? ok(f(result.value)) : result
 
 /**
  * Maps an error to a new error.
  */
-export const mapError = <T, E, F>(
-  result: Result<T, E>,
-  f: (value: E) => F,
-): Result<T, F> => (isError(result) ? error(f(result.error)) : result)
+export const mapError = <T, E, F>(result: Result<T, E>, f: (value: E) => F): Result<T, F> =>
+  isError(result) ? error(f(result.error)) : result
 
 /**
  * Chains a result to a new result.
  */
-export const then = <T, U, E>(
-  result: Result<T, E>,
-  f: (value: T) => Result<U, E>,
-): Result<U, E> => (isOk(result) ? f(result.value) : result)
+export const then = <T, U, E>(result: Result<T, E>, f: (value: T) => Result<U, E>): Result<U, E> =>
+  isOk(result) ? f(result.value) : result
 
 /**
  * Combines two results into one.

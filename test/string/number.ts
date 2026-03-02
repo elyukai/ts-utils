@@ -1,12 +1,6 @@
 import { equal } from "node:assert/strict"
 import { describe, it } from "node:test"
-import {
-  parseInt,
-  parseNat,
-  sign,
-  signIgnoreZero,
-  signStr,
-} from "../../src/string/number.js"
+import { parseInt, parseNat, sign, signIgnoreZero, signStr } from "../../src/string/number.js"
 
 describe("signIgnoreZero", () => {
   it("adds a typographic minus sign to a negative number", () => {

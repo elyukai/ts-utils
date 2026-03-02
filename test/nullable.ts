@@ -32,14 +32,14 @@ describe("isNotNullish", () => {
 describe("mapNullable", () => {
   it("maps a value if it is not nullish", () => {
     assert.equal(
-      mapNullable(2, (x) => x * 2),
+      mapNullable(2, x => x * 2),
       4,
     )
   })
 
   it("returns the original value if it is nullish", () => {
     assert.equal(
-      mapNullable(undefined, (x) => x * 2),
+      mapNullable(undefined, x => x * 2),
       undefined,
     )
   })
@@ -48,14 +48,14 @@ describe("mapNullable", () => {
 describe("mapNullableDefault", () => {
   it("maps a value if it is not nullish", () => {
     assert.equal(
-      mapNullableDefault(2, (x) => x * 2, 0),
+      mapNullableDefault(2, x => x * 2, 0),
       4,
     )
   })
 
   it("returns a default if the value is nullish", () => {
     assert.equal(
-      mapNullableDefault(undefined, (x) => x * 2, 0),
+      mapNullableDefault(undefined, x => x * 2, 0),
       0,
     )
   })
@@ -75,14 +75,14 @@ describe("nullableToArray", () => {
 describe("ensure", () => {
   it("returns the value if it matches the predicate", () => {
     assert.equal(
-      ensure(2, (x) => x === 2),
+      ensure(2, x => x === 2),
       2,
     )
   })
 
   it("returns undefined if the value does not match the predicate", () => {
     assert.equal(
-      ensure(2, (x) => x === 3),
+      ensure(2, x => x === 3),
       undefined,
     )
   })

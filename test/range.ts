@@ -1,12 +1,6 @@
 import { deepEqual, equal, throws } from "node:assert/strict"
 import { describe, it } from "node:test"
-import {
-  indexInRange,
-  isInRange,
-  range,
-  rangeSafe,
-  rangeSize,
-} from "../src/range.js"
+import { indexInRange, isInRange, range, rangeSafe, rangeSize } from "../src/range.js"
 
 describe("range", () => {
   it("returns an array with all values between and including its bounds", () => {

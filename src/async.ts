@@ -14,7 +14,7 @@
  * ```
  */
 export const wait = (delay: number): Promise<void> =>
-  new Promise((resolve) => setTimeout(resolve, delay))
+  new Promise(resolve => setTimeout(resolve, delay))
 
 /**
  * A simple async map to process tasks with a concurrency limit.
@@ -47,7 +47,7 @@ export const mapAsync = <T, R>(
           activeCount++
 
           worker(task)
-            .then((result) => {
+            .then(result => {
               results[currentIndex] = result
               resolvedCount++
               activeCount--

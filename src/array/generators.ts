@@ -15,10 +15,7 @@ export const flatCombine = <T>(arr: T[][]): T[][] =>
   arr.length === 0
     ? []
     : arr.slice(1).reduce<T[][]>(
-        (acc, elem) =>
-          elem.flatMap((elemInner) =>
-            acc.map((accElem) => [...accElem, elemInner]),
-          ),
+        (acc, elem) => elem.flatMap(elemInner => acc.map(accElem => [...accElem, elemInner])),
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- it is checked before if the array is empty
-        arr[0]!.map((elem) => [elem]),
+        arr[0]!.map(elem => [elem]),
       )

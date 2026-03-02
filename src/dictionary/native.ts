@@ -9,9 +9,7 @@ import { omitKeys } from "../object.js"
 /**
  * An alias for a native dictionary.
  */
-export type Dictionary<T extends AnyNonNullish | null> = Readonly<
-  Record<string, T>
->
+export type Dictionary<T extends AnyNonNullish | null> = Readonly<Record<string, T>>
 
 /**
  * An empty dictionary.
@@ -48,10 +46,8 @@ export const getMap = <T extends AnyNonNullish | null, U>(
 /**
  * Checks if the dictionary has the given key.
  */
-export const has = <T extends AnyNonNullish | null>(
-  dict: Dictionary<T>,
-  key: string,
-): boolean => Object.prototype.hasOwnProperty.call(dict, key)
+export const has = <T extends AnyNonNullish | null>(dict: Dictionary<T>, key: string): boolean =>
+  Object.prototype.hasOwnProperty.call(dict, key)
 
 /**
  * Sets the given key to the given value.
@@ -83,28 +79,24 @@ export const remove = <T extends AnyNonNullish | null>(
 /**
  * Returns the number of entries in the dictionary.
  */
-export const size = (dict: Dictionary<AnyNonNullish | null>): number =>
-  Object.keys(dict).length
+export const size = (dict: Dictionary<AnyNonNullish | null>): number => Object.keys(dict).length
 
 /**
  * Returns an array of key-value pairs in the dictionary.
  */
-export const entries = <T extends AnyNonNullish | null>(
-  dict: Dictionary<T>,
-): [string, T][] => Object.entries(dict)
+export const entries = <T extends AnyNonNullish | null>(dict: Dictionary<T>): [string, T][] =>
+  Object.entries(dict)
 
 /**
  * Returns an array of values in the dictionary.
  */
-export const values = <T extends AnyNonNullish | null>(
-  dict: Dictionary<T>,
-): T[] => Object.values(dict)
+export const values = <T extends AnyNonNullish | null>(dict: Dictionary<T>): T[] =>
+  Object.values(dict)
 
 /**
  * Returns an array of keys in the dictionary.
  */
-export const keys = (dict: Dictionary<AnyNonNullish | null>): string[] =>
-  Object.keys(dict)
+export const keys = (dict: Dictionary<AnyNonNullish | null>): string[] => Object.keys(dict)
 
 /**
  * Calls the given function for each key-value pair in the dictionary.
@@ -236,10 +228,7 @@ export const mapFirst = <T extends AnyNonNullish | null, U>(
 /**
  * Applies a function to every key-value pair in the dictionary.
  */
-export const map = <
-  T extends AnyNonNullish | null,
-  U extends AnyNonNullish | null,
->(
+export const map = <T extends AnyNonNullish | null, U extends AnyNonNullish | null>(
   dict: Dictionary<T>,
   mapFn: (value: T, key: string) => U,
 ): Dictionary<U> => {
@@ -257,8 +246,4 @@ export const reduce = <T extends AnyNonNullish | null, U>(
   dict: Dictionary<T>,
   reducer: (acc: U, value: T, key: string) => U,
   initialValue: U,
-): U =>
-  Object.entries(dict).reduce(
-    (acc, [key, item]) => reducer(acc, item, key),
-    initialValue,
-  )
+): U => Object.entries(dict).reduce((acc, [key, item]) => reducer(acc, item, key), initialValue)

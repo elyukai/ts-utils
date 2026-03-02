@@ -6,11 +6,7 @@
 /**
  * Moves an element from one position to another within the array.
  */
-export const reorder = <T>(
-  arr: T[],
-  sourceIndex: number,
-  targetIndex: number,
-): T[] => {
+export const reorder = <T>(arr: T[], sourceIndex: number, targetIndex: number): T[] => {
   if (sourceIndex < 0 || sourceIndex >= arr.length) {
     throw new RangeError(
       `source index ${sourceIndex.toString()} is out of bounds for array of length ${arr.length.toString()}`,

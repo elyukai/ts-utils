@@ -1,10 +1,6 @@
 import { deepEqual } from "node:assert/strict"
 import { describe, it } from "node:test"
-import {
-  ensureNonEmpty,
-  isEmpty,
-  isNotEmpty,
-} from "../../src/array/nonEmpty.js"
+import { ensureNonEmpty, isEmpty, isNotEmpty } from "../../src/array/nonEmpty.js"
 
 describe("isEmpty", () => {
   it("returns true for an empty array", () => {

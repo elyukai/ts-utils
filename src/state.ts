@@ -17,7 +17,7 @@ export class State<S, T> {
    * Returns a new {@link State} instance that returns the state as the resulting value without modifying the state.
    */
   static get<S>(): State<S, S> {
-    return new State((state) => [state, state])
+    return new State(state => [state, state])
   }
 
   /**
@@ -45,14 +45,14 @@ export class State<S, T> {
    * Returns a new {@link State} instance that returns the given value without modifying the state.
    */
   static of<S, T>(value: T): State<S, T> {
-    return new State((state) => [value, state])
+    return new State(state => [value, state])
   }
 
   /**
    * Transforms the value produced by this state transformation function using the given function, while keeping the state unchanged.
    */
   map<U>(f: (value: T) => U): State<S, U> {
-    return new State((state) => {
+    return new State(state => {
       const [value, newState] = this.run(state)
       return [f(value), newState]
     })
@@ -62,14 +62,14 @@ export class State<S, T> {
    * Transforms the value and state produced by this state transformation function using the given function.
    */
   mapBoth<U>(f: (result: [T, S]) => [U, S]): State<S, U> {
-    return new State((state) => f(this.run(state)))
+    return new State(state => f(this.run(state)))
   }
 
   /**
    * Chains this state transformation function with another function that takes the value produced by this function and returns a new {@link State} instance, allowing for sequential state transformations.
    */
   then<U>(f: (value: T) => State<S, U>): State<S, U> {
-    return new State((state) => {
+    return new State(state => {
       const [value, newState] = this.run(state)
       return f(value).run(newState)
     })
@@ -79,13 +79,13 @@ export class State<S, T> {
    * Returns a new {@link State} instance that applies the given function to the state and returns the resulting value without modifying the state.
    */
   static gets<S, T>(f: (state: S) => T): State<S, T> {
-    return new State((state) => [f(state), state])
+    return new State(state => [f(state), state])
   }
 
   /**
    * Modifies the state using the given function before applying this state transformation function.
    */
   with(f: (state: S) => S): State<S, T> {
-    return new State((state) => this.run(f(state)))
+    return new State(state => this.run(f(state)))
   }
 }

@@ -35,9 +35,7 @@ export const sortObjectKeysByIndex = (
   keys: string[],
 ): Record<string, unknown> =>
   Object.fromEntries([
-    ...keys.flatMap((key) =>
-      obj[key] === undefined ? [] : [[key, obj[key]] as [string, unknown]],
-    ),
+    ...keys.flatMap(key => (obj[key] === undefined ? [] : [[key, obj[key]] as [string, unknown]])),
     ...Object.entries(obj).filter(([key]) => !keys.includes(key)),
   ])
 
@@ -50,9 +48,7 @@ export const sortObjectKeys = (
   obj: Record<string, unknown>,
   fn: (a: string, b: string) => number = (a, b) => a.localeCompare(b),
 ): Record<string, unknown> =>
-  Object.fromEntries(
-    Object.entries(obj).sort(([keyA], [keyB]) => fn(keyA, keyB)),
-  )
+  Object.fromEntries(Object.entries(obj).sort(([keyA], [keyB]) => fn(keyA, keyB)))
 
 /**
  * Merges two objects. In case of key conflicts, the `solveConflict` function
@@ -75,13 +71,8 @@ export const mergeObjects = <T>(
 /**
  * Keeps only the given keys in an object.
  */
-export const onlyKeys = <T extends object, K extends keyof T>(
-  obj: T,
-  ...keys: K[]
-): Pick<T, K> =>
-  Object.fromEntries(
-    Object.entries(obj).filter(([key]) => keys.includes(key as K)),
-  ) as Pick<T, K>
+export const onlyKeys = <T extends object, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> =>
+  Object.fromEntries(Object.entries(obj).filter(([key]) => keys.includes(key as K))) as Pick<T, K>
 
 /**
  * Determines whether an object has a property with the specified name.
@@ -97,17 +88,10 @@ export const hasKey = <T extends object, K extends PropertyKey>(
  * Omits all keys with `undefined` values from an object.
  */
 export const omitUndefinedKeys = <T extends object>(obj: T): T =>
-  Object.fromEntries(
-    Object.entries(obj).filter(([, value]) => value !== undefined),
-  ) as T
+  Object.fromEntries(Object.entries(obj).filter(([, value]) => value !== undefined)) as T
 
 /**
  * Omits the given keys from an object.
  */
-export const omitKeys = <T extends object, K extends keyof T>(
-  obj: T,
-  ...keys: K[]
-): Omit<T, K> =>
-  Object.fromEntries(
-    Object.entries(obj).filter(([key]) => !keys.includes(key as K)),
-  ) as Omit<T, K>
+export const omitKeys = <T extends object, K extends keyof T>(obj: T, ...keys: K[]): Omit<T, K> =>
+  Object.fromEntries(Object.entries(obj).filter(([key]) => !keys.includes(key as K))) as Omit<T, K>

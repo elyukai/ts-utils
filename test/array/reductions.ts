@@ -35,7 +35,7 @@ describe("reduceWhile", () => {
     const result = reduceWhile(
       [1, 2, 3, 4, 5],
       (acc, value) => acc + value,
-      (acc) => acc > 3,
+      acc => acc > 3,
       0,
     )
     equal(result, 6)
@@ -58,26 +58,26 @@ describe("sum", () => {
 describe("sumWith", () => {
   it("returns 0 if the array is empty", () => {
     equal(
-      sumWith([], (x) => x * 2),
+      sumWith([], x => x * 2),
       0,
     )
   })
 
   it("returns the sum of all mapped numbers in the array", () => {
     equal(
-      sumWith([1], (x) => x * 2),
+      sumWith([1], x => x * 2),
       2,
     )
     equal(
-      sumWith([1, 2], (x) => x * 2),
+      sumWith([1, 2], x => x * 2),
       6,
     )
     equal(
-      sumWith([1, 2, 3], (x) => x * 2),
+      sumWith([1, 2, 3], x => x * 2),
       12,
     )
     equal(
-      sumWith([1, 2, 3, 4], (x) => x * 2),
+      sumWith([1, 2, 3, 4], x => x * 2),
       20,
     )
   })
@@ -86,15 +86,15 @@ describe("sumWith", () => {
 describe("count", () => {
   it("returns how many elements satify the given predicate", () => {
     equal(
-      count([], (x) => x > 3),
+      count([], x => x > 3),
       0,
     )
     equal(
-      count([0, 2, 3], (x) => x >= 3),
+      count([0, 2, 3], x => x >= 3),
       1,
     )
     equal(
-      count([0, 2, 4, 6, 8], (x) => x > 3),
+      count([0, 2, 4, 6, 8], x => x > 3),
       3,
     )
   })
@@ -103,17 +103,17 @@ describe("count", () => {
 describe("countBy", () => {
   it("returns an empty object of the array is empty", () => {
     deepEqual(
-      countBy([], (x) => x % 2),
+      countBy([], x => x % 2),
       {},
     )
   })
   it("returns for how many elements the function returns the same value", () => {
     deepEqual(
-      countBy([0, 2, 3], (x) => x % 2),
+      countBy([0, 2, 3], x => x % 2),
       { 0: 2, 1: 1 },
     )
     deepEqual(
-      countBy([0, 2, 4, 6, 8], (x) => x % 2),
+      countBy([0, 2, 4, 6, 8], x => x % 2),
       { 0: 5 },
     )
   })
@@ -122,17 +122,17 @@ describe("countBy", () => {
 describe("countByMany", () => {
   it("returns an empty object of the array is empty", () => {
     deepEqual(
-      countByMany([], (x) => [x, Math.round(x / 2), x % 2]),
+      countByMany([], x => [x, Math.round(x / 2), x % 2]),
       {},
     )
   })
   it("returns for how many elements the function returns the same value", () => {
     deepEqual(
-      countByMany([0, 2, 3], (x) => [x, Math.round(x / 2), x % 2]),
+      countByMany([0, 2, 3], x => [x, Math.round(x / 2), x % 2]),
       { 0: 2, 1: 2, 2: 2, 3: 1 },
     )
     deepEqual(
-      countByMany([0, 2, 4, 6, 8], (x) => [x, Math.round(x / 2), x % 2]),
+      countByMany([0, 2, 4, 6, 8], x => [x, Math.round(x / 2), x % 2]),
       { 0: 5, 1: 1, 2: 2, 3: 1, 4: 2, 6: 1, 8: 1 },
     )
   })
@@ -140,22 +140,22 @@ describe("countByMany", () => {
 
 describe("someCount", () => {
   it("should return true if the array has the required minimum elements that satisfy the predicate", () => {
-    const result = someCount([1, 2, 3, 4, 5], (value) => value > 2, 3)
+    const result = someCount([1, 2, 3, 4, 5], value => value > 2, 3)
     equal(result, true)
   })
 
   it("should return false if the array does not have the required minimum elements that satisfy the predicate", () => {
-    const result = someCount([1, 2, 3, 4, 5], (value) => value > 5, 3)
+    const result = someCount([1, 2, 3, 4, 5], value => value > 5, 3)
     equal(result, false)
   })
 
   it("should return true for an array that has exactly the required number of elements satisfying the predicate", () => {
-    const result = someCount([1, 2, 3, 4, 5], (value) => value > 3, 2)
+    const result = someCount([1, 2, 3, 4, 5], value => value > 3, 2)
     equal(result, true)
   })
 
   it("should return false for an empty array", () => {
-    const result = someCount([], (value) => value === 0, 2)
+    const result = someCount([], value => value === 0, 2)
     equal(result, false)
   })
 })
