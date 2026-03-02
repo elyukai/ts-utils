@@ -60,7 +60,7 @@ export class Parser<T> {
   /**
    * A parser that always fails.
    */
-  static zero = new Parser<never>(() => [])
+  static zero: Parser<never> = new Parser<never>(() => [])
 
   /**
    * Combines this parser with another parser, trying this parser first and then the other parser.
