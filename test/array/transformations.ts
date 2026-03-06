@@ -1,13 +1,23 @@
 import { deepEqual } from "node:assert/strict"
 import { describe, it } from "node:test"
-import { flatCombine, intercalate } from "../../src/array/transformations.ts"
+import { flatCombine, intercalate, intersperse } from "../../src/array/transformations.ts"
+
+describe("intersperse", () => {
+  it("returns a new array with the given value intercalated between each element of the given array. An empty array is returned if the given array is empty.", () => {
+    deepEqual(intersperse([], "x"), [])
+    deepEqual(intersperse(["a"], "x"), ["a"])
+    deepEqual(intersperse(["a", "b"], "x"), ["a", "x", "b"])
+    deepEqual(intersperse(["a", "b", "c"], "x"), ["a", "x", "b", "x", "c"])
+  })
+})
 
 describe("intercalate", () => {
-  it("returns a new array with the given value intercalated between each element of the given array. An empty array is returned if the given array is empty.", () => {
-    deepEqual(intercalate([], "x"), [])
-    deepEqual(intercalate(["a"], "x"), ["a"])
-    deepEqual(intercalate(["a", "b"], "x"), ["a", "x", "b"])
-    deepEqual(intercalate(["a", "b", "c"], "x"), ["a", "x", "b", "x", "c"])
+  it("returns a new array with the given values intercalated between each element of the given array. An empty array is returned if the given array is empty.", () => {
+    deepEqual(intercalate([], ["x"]), [])
+    deepEqual(intercalate([["a"]], ["x"]), ["a"])
+    deepEqual(intercalate([["a"], ["b"]], ["x"]), ["a", "x", "b"])
+    deepEqual(intercalate([["a"], ["b"], ["c"]], ["x"]), ["a", "x", "b", "x", "c"])
+    deepEqual(intercalate([["a"], ["b"], ["c"]], ["x", "y"]), ["a", "x", "y", "b", "x", "y", "c"])
   })
 })
 

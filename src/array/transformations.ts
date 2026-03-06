@@ -6,13 +6,24 @@
 import { isNotEmpty } from "./nonEmpty.ts"
 
 /**
- * Returns a new array with the given value intercalated between each element of the given array. An empty array is returned if the given array is empty.
- * @param arr The array to intercalate.
- * @param value The value to intercalate between each element of the array.
- * @returns A new array with the given value intercalated between each element of the given array.
+ * Returns a new array with the given value interspersed between each element of the given array. An empty array is returned if the given array is empty.
+ * @param arr The array to intersperse.
+ * @param value The value to intersperse between each element of the array.
+ * @returns A new array with the given value interspersed between each element of the given array.
  */
-export const intercalate = <T>(arr: T[], value: T): T[] =>
+export const intersperse = <T>(arr: T[], value: T): T[] =>
   !isNotEmpty(arr) ? [] : arr.slice(1).reduce<T[]>((acc, elem) => [...acc, value, elem], [arr[0]])
+
+/**
+ * Returns a new array with the given values intercalated between each element of the given array. An empty array is returned if the given array is empty.
+ * @param arr The array to intercalate.
+ * @param values The values to intercalate between each element of the array.
+ * @returns A new array with the given values intercalated between each element of the given array.
+ */
+export const intercalate = <T>(arr: T[][], values: T[]): T[] =>
+  !isNotEmpty(arr)
+    ? []
+    : arr.slice(1).reduce<T[]>((acc, elem) => [...acc, ...values, ...elem], arr[0])
 
 /**
  * Returns the possibilities of all the combinations of nested array values.
