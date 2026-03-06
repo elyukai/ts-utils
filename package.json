@@ -9,7 +9,7 @@
     "CHANGELOG.md"
   ],
   "exports": {
-    "./*": "./dist/*.js"
+    "./*": "./dist/src/*.js"
   },
   "scripts": {
     "build": "tsc -b",
