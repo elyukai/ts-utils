@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.0](https://github.com/elyukai/ts-utils/compare/v0.2.9...v0.3.0) (2026-03-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* intersperse as old intercalate
+* add array intercalate and rename module
+
+### Features
+
+* add array intercalate and rename module ([2495638](https://github.com/elyukai/ts-utils/commit/24956389cb0fe6e867a985ab760d295cced4ba6b))
+* intersperse as old intercalate ([2d39540](https://github.com/elyukai/ts-utils/commit/2d39540f502415f7db4d5e9227aaab4802e16148))
+
 ## [0.2.9](https://github.com/elyukai/ts-utils/compare/v0.2.8...v0.2.9) (2026-03-02)
 
 
