@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.1](https://github.com/elyukai/ts-utils/compare/v0.3.0...v0.3.1) (2026-03-13)
+
+
+### Features
+
+* groupBy only produces non-empty arrays ([dce9118](https://github.com/elyukai/ts-utils/commit/dce91185c63da77a58d7b48beb15c98945491eb3))
+
 ## [0.3.0](https://github.com/elyukai/ts-utils/compare/v0.2.9...v0.3.0) (2026-03-06)
 
 
