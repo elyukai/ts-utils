@@ -14,6 +14,7 @@
     "./array/transformations": "./src/array/transformations.ts",
     "./async": "./src/async.ts",
     "./classList": "./src/classList.ts",
+    "./debug": "./src/debug.ts",
     "./dictionary": "./src/dictionary.ts",
     "./dictionary/native": "./src/dictionary/native.ts",
     "./equality": "./src/equality.ts",
