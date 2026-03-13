@@ -4,6 +4,7 @@
  */
 
 import type { Equality } from "../equality.ts"
+import type { NonEmptyArray } from "./nonEmpty.ts"
 
 /**
  * Partitions an array into two arrays based on a predicate.
@@ -41,8 +42,8 @@ export function partition<T>(arr: T[], predicate: (value: T) => boolean): [pos: 
  * given equality function are grouped together. Calling the `flat` method on
  * the result will return the original array.
  */
-export const groupBy = <T>(arr: T[], equal: Equality<T>): T[][] =>
-  arr.reduce<T[][]>((acc, value) => {
+export const groupBy = <T>(arr: T[], equal: Equality<T>): NonEmptyArray<T>[] =>
+  arr.reduce<NonEmptyArray<T>[]>((acc, value) => {
     const lastGroup = acc[acc.length - 1]
     if (lastGroup?.[0] !== undefined && equal(lastGroup[0], value)) {
       lastGroup.push(value)
