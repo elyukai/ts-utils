@@ -28,6 +28,8 @@ jobs:
         run: npm test
       - name: Run linting
         run: npm run lint
+      - name: Check code formatting
+        run: npm run format:check
       - name: Publish to JSR
         run: npx jsr publish
       - name: Publish to NPM
