@@ -30,40 +30,44 @@ export const mapObject = <T extends object, U>(
  *
  * Keys not present in the keys array will be placed at the end in their original order.
  */
-export const sortObjectKeysByIndex = (
-  obj: Record<string, unknown>,
-  keys: string[],
-): Record<string, unknown> =>
+export const sortObjectKeysByIndex = <T extends Record<string, unknown>>(
+  obj: T,
+  keys: Extract<keyof T, string>[],
+): T =>
   Object.fromEntries([
     ...keys.flatMap(key => (obj[key] === undefined ? [] : [[key, obj[key]] as [string, unknown]])),
-    ...Object.entries(obj).filter(([key]) => !keys.includes(key)),
-  ])
+    ...Object.entries(obj).filter(([key]) => !keys.includes(key as Extract<keyof T, string>)),
+  ]) as T
 
 /**
  * Sorts the keys of an object using the provided comparison function.
  *
  * By default, it sorts the keys in ascending lexicographical order.
  */
-export const sortObjectKeys = (
-  obj: Record<string, unknown>,
-  fn: (a: string, b: string) => number = (a, b) => a.localeCompare(b),
-): Record<string, unknown> =>
-  Object.fromEntries(Object.entries(obj).sort(([keyA], [keyB]) => fn(keyA, keyB)))
+export const sortObjectKeys = <T extends Record<string, unknown>>(
+  obj: T,
+  fn: (a: Extract<keyof T, string>, b: Extract<keyof T, string>) => number = (a, b) =>
+    a.localeCompare(b),
+): T =>
+  Object.fromEntries(
+    Object.entries(obj).sort(([keyA], [keyB]) =>
+      fn(keyA as Extract<keyof T, string>, keyB as Extract<keyof T, string>),
+    ),
+  ) as T
 
 /**
  * Merges two objects. In case of key conflicts, the `solveConflict` function
  * is used to determine the value for the conflicting key.
  */
-export const mergeObjects = <T>(
-  obj1: Record<string, T>,
-  obj2: Record<string, T>,
+export const mergeObjects = <T, K extends string = string>(
+  obj1: Record<K, T>,
+  obj2: Record<K, T>,
   solveConflict: (a: T, b: T) => T,
-): Record<string, T> =>
-  Object.entries(obj2).reduce(
+): Record<K, T> =>
+  Object.entries<T>(obj2).reduce(
     (acc, [key, value]) => ({
       ...acc,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      [key]: Object.hasOwn(acc, key) ? solveConflict(acc[key]!, value) : value,
+      [key]: Object.hasOwn(acc, key) ? solveConflict(acc[key as K], value) : value,
     }),
     obj1,
   )
