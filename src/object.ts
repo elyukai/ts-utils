@@ -60,14 +60,14 @@ export const sortObjectKeys = <T extends Record<string, unknown>>(
  * is used to determine the value for the conflicting key.
  */
 export const mergeObjects = <T, K extends string = string>(
-  obj1: Record<K, T>,
-  obj2: Record<K, T>,
+  obj1: Partial<Record<K, T>>,
+  obj2: Partial<Record<K, T>>,
   solveConflict: (a: T, b: T) => T,
-): Record<K, T> =>
-  Object.entries<T>(obj2).reduce(
+): Partial<Record<K, T>> =>
+  Object.entries<T>(obj2 as Record<K, T>).reduce(
     (acc, [key, value]) => ({
       ...acc,
-      [key]: Object.hasOwn(acc, key) ? solveConflict(acc[key as K], value) : value,
+      [key]: Object.hasOwn(acc, key) ? solveConflict(acc[key as K] as T, value) : value,
     }),
     obj1,
   )

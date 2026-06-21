@@ -30,7 +30,7 @@ describe("mapObject", () => {
 describe("sortObjectKeysByIndex", () => {
   it("sorts the keys of an object based on the order of the provided keys array", () => {
     const obj = { b: 2, a: 1, c: 3, d: 4 }
-    const keys = ["c", "a"]
+    const keys: (keyof typeof obj)[] = ["c", "a"]
     const result = sortObjectKeysByIndex(obj, keys)
     assert.deepEqual(result, { c: 3, a: 1, b: 2, d: 4 })
     assert.deepEqual(Object.keys(result), ["c", "a", "b", "d"])
