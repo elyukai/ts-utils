@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.5](https://github.com/elyukai/ts-utils/compare/v0.3.4...v0.3.5) (2026-06-21)
+
+
+### Features
+
+* **object:** improve handling of record-style objects ([3748410](https://github.com/elyukai/ts-utils/commit/3748410b3da18e3d29ee2f672736aa17172960ae))
+
 ## [0.3.4](https://github.com/elyukai/ts-utils/compare/v0.3.3...v0.3.4) (2026-04-11)
 
 ## [0.3.3](https://github.com/elyukai/ts-utils/compare/v0.3.2...v0.3.3) (2026-03-20)
