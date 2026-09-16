@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.7](https://github.com/elyukai/ts-utils/compare/v0.3.6...v0.3.7) (2026-09-16)
+
+
+### Features
+
+* traverse passes array index to mapping function ([f258983](https://github.com/elyukai/ts-utils/commit/f258983443bc4ac9b795077832fd3e7ce31c256e))
+
 ## [0.3.6](https://github.com/elyukai/ts-utils/compare/v0.3.5...v0.3.6) (2026-06-21)
 
 ## [0.3.5](https://github.com/elyukai/ts-utils/compare/v0.3.4...v0.3.5) (2026-06-21)
