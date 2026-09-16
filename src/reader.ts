@@ -88,8 +88,11 @@ export class Reader<in R, out T> {
   /**
    * Apply a function to each value in the array, and return a Reader that produces an array of the results.
    */
-  static traverse<T, R, U>(values: T[], fn: (value: T) => Reader<R, U>): Reader<R, U[]> {
-    return new Reader(env => values.map(value => fn(value).run(env)))
+  static traverse<T, R, U>(
+    values: T[],
+    fn: (value: T, index: number) => Reader<R, U>,
+  ): Reader<R, U[]> {
+    return new Reader(env => values.map((value, index) => fn(value, index).run(env)))
   }
 
   /**
