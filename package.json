@@ -33,14 +33,15 @@
   "homepage": "https://github.com/elyukai/ts-utils#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^26.0.0",
-    "commit-and-tag-version": "^12.7.3",
-    "eslint": "^10.5.0",
-    "eslint-plugin-jsdoc": "^63.0.7",
-    "prettier": "^3.8.4",
-    "tsx": "^4.22.4",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.61.1"
+    "@types/node": "^26.6.2",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "commit-and-tag-version": "^13.2.1",
+    "eslint": "^10.11.0",
+    "eslint-plugin-jsdoc": "^64.5.4",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "typescript-eslint": "^8.70.1"
   },
   "type": "module"
 }
