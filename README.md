@@ -15,3 +15,7 @@ const extractFirstNumberDoubled = (arr: number[]): number | undefined => {
   return undefined
 }
 ```
+
+## Helper types
+
+It might be unwanted to have built-in object types extended by libraries. However, there are some built-in functions that would benefit from extensions. For this reason, this repository includes a ready-to-copy file [global.d.ts](./global.d.ts) that can be inserted into your project.
