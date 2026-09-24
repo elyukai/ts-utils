@@ -12,7 +12,10 @@ export default defineConfig(
   {
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ["eslint.config.js", "global.d.ts"],
+        },
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- false positive
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -46,6 +49,6 @@ export default defineConfig(
     },
   },
   {
-    ignores: ["dist", "eslint.config.js"],
+    ignores: ["dist"],
   },
 )
