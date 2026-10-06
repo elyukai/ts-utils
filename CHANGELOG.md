@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.8](https://github.com/elyukai/ts-utils/compare/v0.3.7...v0.3.8) (2026-10-06)
+
+### Features
+
+* conditional trace functions ([0a45936](https://github.com/elyukai/ts-utils/commit/0a4593601b65adee267b90c673cf890578362aa2))
+
 ## [0.3.7](https://github.com/elyukai/ts-utils/compare/v0.3.6...v0.3.7) (2026-09-16)
 
 
