@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.9](https://github.com/elyukai/ts-utils/compare/v0.3.8...v0.3.9) (2026-10-12)
+
+### Features
+
+* **reader:** helpers for chaining operations on nullable values ([eb3a444](https://github.com/elyukai/ts-utils/commit/eb3a444a528b15e19ff3d91bcbb3241299cb0b2b))
+* **reader:** lazy value initializer ([e6a68b0](https://github.com/elyukai/ts-utils/commit/e6a68b0cbb949e918d9bccb26cecaefff120a4fa))
+
 ## [0.3.8](https://github.com/elyukai/ts-utils/compare/v0.3.7...v0.3.8) (2026-10-06)
 
 ### Features
