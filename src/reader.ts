@@ -4,6 +4,7 @@
  */
 
 import { identity } from "./function.ts"
+import { isNotNullish } from "./nullable.ts"
 
 // A simpler wrapper for working with text that is generated based on different contexts, which encapsulates the context and reduces main code clutter. The context is only applied in the end.
 /**
@@ -23,6 +24,13 @@ export class Reader<in R, out T> {
    */
   static of<R = unknown, T = never>(value: T): Reader<R, T> {
     return new Reader(() => value)
+  }
+
+  /**
+   * Always produce the given value, regardless of the environment.
+   */
+  static ofLazy<R = unknown, T = never>(value: () => T): Reader<R, T> {
+    return new Reader(() => value())
   }
 
   /**
