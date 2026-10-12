@@ -127,9 +127,67 @@ export class Reader<in R, out T> {
   ): (...args: Args) => Reader<R, T> {
     return (...args: Args) => new Reader(env => reader.run(env)(...args))
   }
-}
 
-// type Readable<T> =
-//   T extends Record<string, unknown>
-//     ? { [K in keyof T]: Readable<T[K]> }
-//     : T
+  /**
+   * Helpers for working with nullable values in a Reader context.
+   */
+
+  /**
+   * Applies the given function to the value produced by this Reader if the value is not nullable and returns a new Reader that produces the result.
+   *
+   * If the produced value is mullish, the provided fallback value is returned instead. If no fallback value is provided, the result will be undefined.
+   */
+  mapOrElse<U>(f: (value: NonNullable<T>) => U): Reader<R, U | undefined>
+  mapOrElse<U>(f: (value: NonNullable<T>) => U, fallback: U): Reader<R, U>
+  mapOrElse<U>(f: (value: NonNullable<T>) => U, fallback?: U): Reader<R, U> {
+    return new Reader(env => {
+      const producedValue = this.#fn(env)
+      if (isNotNullish(producedValue)) {
+        return f(producedValue)
+      }
+      return fallback as U
+    })
+  }
+
+  /**
+   * Applies the given function to the value produced by this Reader if the value is not nullable and returns a new Reader that produces the result. The function must return a Reader, which allows you to chain computations that depend on the same environment.
+   *
+   * If the produced value is mullish, the provided fallback value is returned instead. If no fallback value is provided, the result will be undefined.
+   */
+  thenOrElse<U>(f: (value: NonNullable<T>) => Reader<R, U>): Reader<R, U | undefined>
+  thenOrElse<U>(f: (value: NonNullable<T>) => Reader<R, U>, fallback: Reader<R, U>): Reader<R, U>
+  thenOrElse<U>(f: (value: NonNullable<T>) => Reader<R, U>, fallback?: Reader<R, U>): Reader<R, U> {
+    return new Reader(env => {
+      const producedValue = this.#fn(env)
+      if (isNotNullish(producedValue)) {
+        return f(producedValue).#fn(env)
+      }
+      return (fallback as Reader<R, U>).#fn(env)
+    })
+  }
+
+  /**
+   * Applies the given function to the value produced by this Reader if the value is not nullable and returns a new Reader that produces the result. The function must return a Reader, which allows you to chain computations that depend on a shared environment. The environments do not have to be the same, but will need to be combined.
+   *
+   * If the produced value is mullish, the provided fallback value is returned instead. If no fallback value is provided, the result will be undefined.
+   *
+   * The suffix ‘W’ stands for ‘widening’, as this method allows you to widen the environment that the Reader depends on.
+   */
+  thenWOrElse<U, S>(f: (value: NonNullable<T>) => Reader<S, U>): Reader<R & S, U | undefined>
+  thenWOrElse<U, S>(
+    f: (value: NonNullable<T>) => Reader<S, U>,
+    fallback: Reader<S, U>,
+  ): Reader<R & S, U>
+  thenWOrElse<U, S>(
+    f: (value: NonNullable<T>) => Reader<S, U>,
+    fallback?: Reader<S, U>,
+  ): Reader<R & S, U> {
+    return new Reader(env => {
+      const producedValue = this.#fn(env)
+      if (isNotNullish(producedValue)) {
+        return f(producedValue).#fn(env)
+      }
+      return (fallback as Reader<S, U>).#fn(env)
+    })
+  }
+}
