@@ -143,7 +143,7 @@ export class Reader<in R, out T> {
   /**
    * Applies the given function to the value produced by this Reader if the value is not nullable and returns a new Reader that produces the result.
    *
-   * If the produced value is mullish, the provided fallback value is returned instead. If no fallback value is provided, the result will be undefined.
+   * If the produced value is nullish, the provided fallback value is returned instead. If no fallback value is provided, the result will be undefined.
    */
   mapOrElse<U>(f: (value: NonNullable<T>) => U): Reader<R, U | undefined>
   mapOrElse<U>(f: (value: NonNullable<T>) => U, fallback: U): Reader<R, U>
@@ -160,7 +160,7 @@ export class Reader<in R, out T> {
   /**
    * Applies the given function to the value produced by this Reader if the value is not nullable and returns a new Reader that produces the result. The function must return a Reader, which allows you to chain computations that depend on the same environment.
    *
-   * If the produced value is mullish, the provided fallback value is returned instead. If no fallback value is provided, the result will be undefined.
+   * If the produced value is nullish, the provided fallback value is returned instead. If no fallback value is provided, the result will be undefined.
    */
   thenOrElse<U>(f: (value: NonNullable<T>) => Reader<R, U>): Reader<R, U | undefined>
   thenOrElse<U>(f: (value: NonNullable<T>) => Reader<R, U>, fallback: Reader<R, U>): Reader<R, U>
@@ -177,7 +177,7 @@ export class Reader<in R, out T> {
   /**
    * Applies the given function to the value produced by this Reader if the value is not nullable and returns a new Reader that produces the result. The function must return a Reader, which allows you to chain computations that depend on a shared environment. The environments do not have to be the same, but will need to be combined.
    *
-   * If the produced value is mullish, the provided fallback value is returned instead. If no fallback value is provided, the result will be undefined.
+   * If the produced value is nullish, the provided fallback value is returned instead. If no fallback value is provided, the result will be undefined.
    *
    * The suffix ‘W’ stands for ‘widening’, as this method allows you to widen the environment that the Reader depends on.
    */
