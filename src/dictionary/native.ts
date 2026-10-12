@@ -47,7 +47,7 @@ export const getMap = <T extends AnyNonNullish | null, U>(
  * Checks if the dictionary has the given key.
  */
 export const has = <T extends AnyNonNullish | null>(dict: Dictionary<T>, key: string): boolean =>
-  Object.prototype.hasOwnProperty.call(dict, key)
+  Object.hasOwn(dict, key)
 
 /**
  * Sets the given key to the given value.
@@ -120,6 +120,7 @@ export const forEachAsync = async <T extends AnyNonNullish | null>(
   fn: (value: T, key: string) => Promise<void>,
 ): Promise<void> => {
   for (const [key, value] of Object.entries(dict)) {
+    // oxlint-disable-next-line no-await-in-loop -- described in JSDoc
     await fn(value, key)
   }
 }

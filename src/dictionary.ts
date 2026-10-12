@@ -69,7 +69,7 @@ export class Dictionary<T extends AnyNonNullish | null, K extends string = strin
    * Checks if the dictionary has the given key.
    */
   has(key: K): boolean {
-    return Object.prototype.hasOwnProperty.call(this.record, key)
+    return Object.hasOwn(this.record, key)
   }
 
   /**
@@ -141,6 +141,7 @@ export class Dictionary<T extends AnyNonNullish | null, K extends string = strin
     if (async === true) {
       return (async () => {
         for (const [key, value] of this.entries()) {
+          // oxlint-disable-next-line no-await-in-loop -- described in JSDoc
           await fn(value, key)
         }
       })()

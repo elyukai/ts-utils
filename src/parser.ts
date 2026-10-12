@@ -171,14 +171,14 @@ export class Parser<T> {
   /**
    * A parser that parses whitepace characters.
    */
-  static space: Parser<string> = Parser.regex(/^\s*/)
+  static space: Parser<string> = Parser.regex(/^\s*/u)
 
   /**
    * A parser that parses horizontal whitepace characters.
    *
    * This can be useful for parsing a language where newlines are significant.
    */
-  static hspace: Parser<string> = Parser.regex(/^[^\S\r\n]*/)
+  static hspace: Parser<string> = Parser.regex(/^[^\S\r\n]*/u)
 
   /**
    * Throws away trailing whitespace characters before applying the given parser.
@@ -224,7 +224,7 @@ export class Parser<T> {
    */
   static lookahead<T>(parser: Parser<T>): Parser<T> {
     return new Parser(syntax => {
-      const result = parser.parse(syntax)[0]
+      const [result] = parser.parse(syntax)
       return result !== undefined ? [[result[0], syntax]] : []
     })
   }
@@ -234,7 +234,7 @@ export class Parser<T> {
    */
   static negativeLookahead(parser: Parser<unknown>): Parser<undefined> {
     return new Parser(syntax => {
-      const result = parser.parse(syntax)[0]
+      const [result] = parser.parse(syntax)
       return result === undefined ? [[undefined, syntax]] : []
     })
   }

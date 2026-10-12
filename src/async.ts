@@ -37,6 +37,11 @@ export const mapAsync = <T, R>(
 
     const totalCount = tasks.length
 
+    const adjustCountsOnFinish = () => {
+      resolvedCount++
+      activeCount--
+    }
+
     const runNext = () => {
       if (resolvedCount === totalCount) {
         resolve(results)
@@ -49,8 +54,7 @@ export const mapAsync = <T, R>(
           worker(task)
             .then(result => {
               results[currentIndex] = result
-              resolvedCount++
-              activeCount--
+              adjustCountsOnFinish()
               runNext()
             })
             .catch(reject)

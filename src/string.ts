@@ -9,10 +9,10 @@
 export const isNonEmptyString = (value: string | null | undefined): value is string =>
   typeof value === "string" && value.length > 0
 
-const letterOrDigit = /[a-zA-Z0-9]/
-const uppercase = /[A-Z]/
-const lowerCaseOrDigit = /[a-z0-9]/
-const separator = /[^a-z0-9]/
+const letterOrDigit = /[a-zA-Z0-9]/u
+const uppercase = /[A-Z]/u
+const lowerCaseOrDigit = /[a-z0-9]/u
+const separator = /[^a-z0-9]/u
 
 const lastChar = (str: string) => str[str.length - 1]
 const lastElement = <T>(arr: T[]) => arr[arr.length - 1]
