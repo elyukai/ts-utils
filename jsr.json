@@ -13,6 +13,7 @@
     "./array/sets": "./src/array/sets.ts",
     "./array/transformations": "./src/array/transformations.ts",
     "./async": "./src/async.ts",
+    "./async/node": "./src/async/node.ts",
     "./classList": "./src/classList.ts",
     "./debug": "./src/debug.ts",
     "./dictionary": "./src/dictionary.ts",
