@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.11](https://github.com/elyukai/ts-utils/compare/v0.3.10...v0.3.11) (2026-10-15)
+
+### Features
+
+* add asynchronous exists function for node ([d8f10ea](https://github.com/elyukai/ts-utils/commit/d8f10eaa2c5adaaf812dd04d55cfc328e519c0db))
+
 ## [0.3.10](https://github.com/elyukai/ts-utils/compare/v0.3.9...v0.3.10) (2026-10-12)
 
 ## [0.3.9](https://github.com/elyukai/ts-utils/compare/v0.3.8...v0.3.9) (2026-10-12)
