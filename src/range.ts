@@ -3,11 +3,15 @@
  * @module
  */
 
+import type { NonEmptyArray } from "./array/nonEmpty.ts"
+
 /**
  * A pair that specifies the lower (including) and upper (including) bounds of a
  * contiguous subrange of integer values.
  */
 export type RangeBounds = [lowerBound: number, upperBound: number]
+
+export type Range = NonEmptyArray<number>
 
 const normalizeBounds = (bounds: [RangeBounds] | RangeBounds): RangeBounds =>
   bounds.length === 1 ? bounds[0] : bounds
@@ -17,16 +21,16 @@ const normalizeBounds = (bounds: [RangeBounds] | RangeBounds): RangeBounds =>
  * @throws {RangeError} If the upper bound is lower than the lower bound.
  */
 export const range: {
-  (...args: RangeBounds): number[]
-  (bounds: RangeBounds): number[]
-} = (...args: [bounds: RangeBounds] | RangeBounds): number[] => {
+  (...args: RangeBounds): Range
+  (bounds: RangeBounds): Range
+} = (...args: [bounds: RangeBounds] | RangeBounds): Range => {
   const [start, end] = normalizeBounds(args)
 
   if (start > end) {
     throw new RangeError("The upper bound must be greater than or equal to the lower bound.")
   }
 
-  return Array.from({ length: end - start + 1 }, (_, i) => i + start)
+  return Array.from({ length: end - start + 1 }, (_, i) => i + start) as Range
 }
 
 /**
@@ -36,9 +40,9 @@ export const range: {
  * @param end The last number in the range.
  */
 export const rangeSafe: {
-  (...args: RangeBounds): number[]
-  (bounds: RangeBounds): number[]
-} = (...args: [bounds: RangeBounds] | RangeBounds): number[] => {
+  (...args: RangeBounds): Range
+  (bounds: RangeBounds): Range
+} = (...args: [bounds: RangeBounds] | RangeBounds): Range => {
   const [start, end] = normalizeBounds(args)
   return start > end ? range(end, start) : range(start, end)
 }
