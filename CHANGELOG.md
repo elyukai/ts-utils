@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.13](https://github.com/elyukai/ts-utils/compare/v0.3.12...v0.3.13) (2026-11-02)
+
+### Features
+
+* array reductions work on readonly arrays ([e44cbe5](https://github.com/elyukai/ts-utils/commit/e44cbe5c4e7b8d44e570fa9c539654961450a503))
+
 ## [0.3.12](https://github.com/elyukai/ts-utils/compare/v0.3.11...v0.3.12) (2026-10-30)
 
 ### Features
