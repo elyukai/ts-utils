@@ -16,7 +16,7 @@ import { unique } from "./filters.js"
  * @param initial The initial value.
  */
 export const reduceWhile = <T, U>(
-  arr: T[],
+  arr: readonly T[],
   fn: (acc: U, value: T, index: number) => U,
   pred: (acc: U) => boolean,
   initial: U,
@@ -33,27 +33,29 @@ export const reduceWhile = <T, U>(
 /**
  * Returns the sum of all numbers in the given array.
  */
-export const sum = (arr: number[]): number => arr.reduce((acc, value) => acc + value, 0)
+export const sum = (arr: readonly number[]): number => arr.reduce((acc, value) => acc + value, 0)
 
 /**
  * Returns the sum of values returned by applying the given function to each
  * element in the array.
  */
-export const sumWith = <T>(arr: T[], fn: (value: T, index: number) => number): number =>
+export const sumWith = <T>(arr: readonly T[], fn: (value: T, index: number) => number): number =>
   arr.reduce((acc, value, index) => acc + fn(value, index), 0)
 
 /**
  * Counts the number of elements in an array that satisfy the given predicate.
  */
-export const count = <T>(arr: T[], predicate: (value: T, index: number) => boolean): number =>
-  sumWith(arr, (value, index) => (predicate(value, index) ? 1 : 0))
+export const count = <T>(
+  arr: readonly T[],
+  predicate: (value: T, index: number) => boolean,
+): number => sumWith(arr, (value, index) => (predicate(value, index) ? 1 : 0))
 
 /**
  * Counts the number of elements the function returns the same value for and
  * returns the count for all returned values as an object.
  */
 export const countBy = <T, K extends string | number | symbol>(
-  arr: T[],
+  arr: readonly T[],
   fn: (value: T, index: number) => K,
 ): Partial<Record<K, number>> =>
   arr.reduce<Partial<Record<K, number>>>((acc, value, index) => {
@@ -67,7 +69,7 @@ export const countBy = <T, K extends string | number | symbol>(
  * returns the count for all returned values as an object.
  */
 export const countByMany = <T, K extends string | number | symbol>(
-  arr: T[],
+  arr: readonly T[],
   fn: (value: T, index: number) => K[],
 ): Partial<Record<K, number>> =>
   arr.reduce<Partial<Record<K, number>>>((acc, value, index) => {
@@ -83,7 +85,7 @@ export const countByMany = <T, K extends string | number | symbol>(
  * satisfy the given predicate, `false` otherwise.
  */
 export const someCount = <T>(
-  arr: T[],
+  arr: readonly T[],
   predicate: (value: T) => boolean,
   minCount: number,
 ): boolean =>
