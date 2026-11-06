@@ -10,14 +10,14 @@ import { isNotEmpty } from "./nonEmpty.ts"
  * they don’t provide value equality semantics.
  */
 export const unique = <T extends number | boolean | string | symbol | null | undefined>(
-  arr: T[],
+  arr: readonly T[],
 ): T[] => Array.from(new Set(arr))
 
 /**
  * Checks if there are any duplicate elements in the array.
  */
 export const anySame = <T>(
-  arr: T[],
+  arr: readonly T[],
   equalityCheck: (a: T, b: T) => boolean = (a, b) => a === b,
 ): boolean =>
   arr.some((item, index) => arr.findIndex(other => equalityCheck(item, other)) !== index)
@@ -27,7 +27,7 @@ export const anySame = <T>(
  * of found duplicates where the values are the indices of these values.
  */
 export const anySameIndices = <T>(
-  arr: T[],
+  arr: readonly T[],
   equalityCheck: (a: T, b: T) => boolean = (a, b) => a === b,
 ): number[][] =>
   arr.reduce((acc: number[][], item, index) => {
@@ -50,6 +50,6 @@ export const anySameIndices = <T>(
  * @returns `true` if all elements in the array are the same, otherwise `false`.
  */
 export const allSame = <T>(
-  arr: T[],
+  arr: readonly T[],
   equalityCheck: (a: T, b: T) => boolean = (a, b) => a === b,
 ): boolean => (isNotEmpty(arr) ? arr.every(item => equalityCheck(item, arr[0])) : true)

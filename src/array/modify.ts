@@ -6,7 +6,7 @@
 /**
  * Moves an element from one position to another within the array.
  */
-export const reorder = <T>(arr: T[], sourceIndex: number, targetIndex: number): T[] => {
+export const reorder = <T>(arr: readonly T[], sourceIndex: number, targetIndex: number): T[] => {
   if (sourceIndex < 0 || sourceIndex >= arr.length) {
     throw new RangeError(
       `source index ${sourceIndex.toString()} is out of bounds for array of length ${arr.length.toString()}`,
@@ -20,7 +20,7 @@ export const reorder = <T>(arr: T[], sourceIndex: number, targetIndex: number): 
   }
 
   if (sourceIndex === targetIndex) {
-    return arr
+    return arr as T[]
   }
 
   if (sourceIndex < targetIndex) {
@@ -50,7 +50,7 @@ export const reorder = <T>(arr: T[], sourceIndex: number, targetIndex: number): 
  *
  * @throws {RangeError} Index is out of bounds.
  */
-export const removeAt = <T>(arr: T[], index: number): T[] => {
+export const removeAt = <T>(arr: readonly T[], index: number): T[] => {
   if (index < 0 || index >= arr.length) {
     throw new RangeError(
       `index ${index.toString()} is out of bounds for array of length ${arr.length.toString()}`,
@@ -67,7 +67,7 @@ export const removeAt = <T>(arr: T[], index: number): T[] => {
  *
  * @throws {RangeError} Index is out of bounds.
  */
-export const insertAt = <T>(arr: T[], index: number, item: T): T[] => {
+export const insertAt = <T>(arr: readonly T[], index: number, item: T): T[] => {
   if (index < 0 || index > arr.length) {
     throw new RangeError(
       `index ${index.toString()} is out of bounds for array of length ${arr.length.toString()}`,

@@ -11,7 +11,7 @@ import { isNotEmpty } from "./nonEmpty.ts"
  * @param value The value to intersperse between each element of the array.
  * @returns A new array with the given value interspersed between each element of the given array.
  */
-export const intersperse = <T>(arr: T[], value: T): T[] =>
+export const intersperse = <T>(arr: readonly T[], value: T): T[] =>
   !isNotEmpty(arr) ? [] : arr.slice(1).reduce<T[]>((acc, elem) => [...acc, value, elem], [arr[0]])
 
 /**
@@ -20,7 +20,7 @@ export const intersperse = <T>(arr: T[], value: T): T[] =>
  * @param values The values to intercalate between each element of the array.
  * @returns A new array with the given values intercalated between each element of the given array.
  */
-export const intercalate = <T>(arr: T[][], values: T[]): T[] =>
+export const intercalate = <T>(arr: readonly T[][], values: readonly T[]): T[] =>
   !isNotEmpty(arr)
     ? []
     : arr.slice(1).reduce<T[]>((acc, elem) => [...acc, ...values, ...elem], arr[0])
@@ -33,7 +33,7 @@ export const intercalate = <T>(arr: T[][], values: T[]): T[] =>
  * flatCombine([["a", "b"], ["c"]]) // [["a", "c"], ["b", "c"]]
  * flatCombine([["a", "b"], ["c", "d"]]) // [["a", "c"], ["b", "c"], ["a", "d"], ["b", "d"]]
  */
-export const flatCombine = <T>(arr: T[][]): T[][] =>
+export const flatCombine = <T>(arr: readonly T[][]): T[][] =>
   arr.length === 0
     ? []
     : arr.slice(1).reduce<T[][]>(

@@ -11,7 +11,7 @@ import { removeAt } from "./modify.ts"
  * @param newArr - The new array to compare against.
  * @returns An object containing the added and removed elements.
  */
-export const difference = <T>(oldArr: T[], newArr: T[]): ArrayDiffResult<T> =>
+export const difference = <T>(oldArr: readonly T[], newArr: readonly T[]): ArrayDiffResult<T> =>
   newArr.reduce(
     (acc: ArrayDiffResult<T>, item) => {
       const oldIndex = acc.removed.indexOf(item)
@@ -25,7 +25,7 @@ export const difference = <T>(oldArr: T[], newArr: T[]): ArrayDiffResult<T> =>
       }
       return acc
     },
-    { removed: oldArr, added: newArr },
+    { removed: oldArr as T[], added: newArr as T[] },
   )
 
 export interface ArrayDiffResult<T> {

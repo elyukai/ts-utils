@@ -16,15 +16,15 @@ export type NonEmptyArray<T> = [T, ...T[]]
 /**
  * Checks if the array is empty.
  */
-export const isEmpty = (arr: unknown[]): arr is EmptyArray => arr.length === 0
+export const isEmpty = (arr: readonly unknown[]): arr is EmptyArray => arr.length === 0
 
 /**
  * Checks if the array is not empty, i.e., contains at least one element.
  */
-export const isNotEmpty = <T>(arr: T[]): arr is NonEmptyArray<T> => !isEmpty(arr)
+export const isNotEmpty = <T>(arr: readonly T[]): arr is NonEmptyArray<T> => !isEmpty(arr)
 
 /**
  * Returns `undefined` if the array is empty, otherwise the non-empty array.
  */
-export const ensureNonEmpty = <T>(arr: T[]): NonEmptyArray<T> | undefined =>
+export const ensureNonEmpty = <T>(arr: readonly T[]): NonEmptyArray<T> | undefined =>
   isNotEmpty(arr) ? arr : undefined
