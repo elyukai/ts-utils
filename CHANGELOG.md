@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.14](https://github.com/elyukai/ts-utils/compare/v0.3.13...v0.3.14) (2026-11-06)
+
+### Features
+
+* most array helpers work with readonly arrays ([2ed0325](https://github.com/elyukai/ts-utils/commit/2ed032542c6ddbfafba4bf565a6bc89fb6d380d3))
+* reductions work with any iterable ([c1d3378](https://github.com/elyukai/ts-utils/commit/c1d33781936559d8fb2bfd316ec1009da12c6ce2))
+
 ## [0.3.13](https://github.com/elyukai/ts-utils/compare/v0.3.12...v0.3.13) (2026-11-02)
 
 ### Features
