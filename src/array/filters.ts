@@ -53,3 +53,23 @@ export const allSame = <T>(
   arr: readonly T[],
   equalityCheck: (a: T, b: T) => boolean = (a, b) => a === b,
 ): boolean => (isNotEmpty(arr) ? arr.every(item => equalityCheck(item, arr[0])) : true)
+
+/**
+ * Finds the first element in the array that satisfies the provided function and returns its mapped value. If no such element is found, it returns `undefined`.
+ *
+ * @param arr The array to search through.
+ * @param fn A function that takes an element and its index, and returns a mapped value or `undefined`.
+ * @returns The mapped value of the first element that satisfies the function, or `undefined` if no such element is found.
+ */
+export const findMap = <T, U>(
+  arr: readonly T[],
+  fn: (value: T, index: number) => NonNullable<U> | undefined,
+): NonNullable<U> | undefined => {
+  for (let i = 0; i < arr.length; i++) {
+    const result = fn(arr[i]!, i)
+    if (result !== undefined) {
+      return result
+    }
+  }
+  return undefined
+}
