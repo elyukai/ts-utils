@@ -1,6 +1,6 @@
 {
   "name": "@elyukai/utils",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "description": "A set of JavaScript helper functions.",
   "files": [
     "dist",

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.15](https://github.com/elyukai/ts-utils/compare/v0.3.14...v0.3.15) (2026-11-10)
+
+### Features
+
+* **array:** new function findMap ([6122e92](https://github.com/elyukai/ts-utils/commit/6122e92f5fdd464484e4468f84e12f7df99f7970))
+
 ## [0.3.14](https://github.com/elyukai/ts-utils/compare/v0.3.13...v0.3.14) (2026-11-06)
 
 ### Features
