@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.16](https://github.com/elyukai/ts-utils/compare/v0.3.15...v0.3.16) (2026-11-12)
+
+### Features
+
+* add array builders ([9b3ffb2](https://github.com/elyukai/ts-utils/commit/9b3ffb271494cf3f9eb8ee2ca8b2139a67a6ef58))
+* add replicateWithIndex ([e4bf6a3](https://github.com/elyukai/ts-utils/commit/e4bf6a30a678273d22809bd389fe700c990d9b78))
+
 ## [0.3.15](https://github.com/elyukai/ts-utils/compare/v0.3.14...v0.3.15) (2026-11-10)
 
 ### Features
