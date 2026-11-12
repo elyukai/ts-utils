@@ -1,0 +1,34 @@
+/**
+ * Replicates a value a given number of times and returns an array containing the replicated values.
+ * @param value The value to replicate.
+ * @param count The number of times to replicate the value.
+ * @returns An array containing the replicated values.
+ */
+export const replicate = <T>(value: T, count: number): T[] => {
+  if (count < 0) {
+    throw new RangeError(`count ${count.toString()} is negative`)
+  }
+
+  return Array.from({ length: count }, () => value)
+}
+
+/**
+ * Generates an array by repeatedly applying a function to a seed value until the function returns `undefined`.
+ * @param seed The initial value to start the generation.
+ * @param fn A function that takes the current value and returns a tuple of the next value and the new seed, or `undefined` to stop the generation.
+ * @returns An array of generated values.
+ */
+export const unfold = <T, U>(seed: U, fn: (value: U) => [T, U] | undefined): T[] => {
+  const result: T[] = []
+  let current = seed
+  while (true) {
+    const next = fn(current)
+    if (next === undefined) {
+      break
+    }
+    const [value, newSeed] = next
+    result.push(value)
+    current = newSeed
+  }
+  return result
+}

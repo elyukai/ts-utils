@@ -4,6 +4,7 @@
   "version": "0.3.15",
   "license": "MPL-2.0",
   "exports": {
+    "./array/build": "./src/array/build.ts",
     "./array/filters": "./src/array/filters.ts",
     "./array/fixed": "./src/array/fixed.ts",
     "./array/groups": "./src/array/groups.ts",
